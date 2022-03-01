@@ -13,9 +13,25 @@
   width: 100%;
   height: 90%;
   border-radius: 20px;
-  background-color: transparent;
-  border: 2px solid black;
+  background-color: aliceblue;
+  font-size: 2vw;
 }
 
 .btn_search {
+  font-size: 1em;
+  text-align: center;
+  cursor: pointer;
+  background: #425ea7;
+  border-radius: 10px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.btn_search:active {
+  transform: scale(0.9);
+  background-color: darken(#f8faff, 5%);
+  border: 2px solid black;
+  transform: translateY(5px);
+  box-shadow: 0 2px 25px aliceblue;
 }
