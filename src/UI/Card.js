@@ -9,14 +9,20 @@ import Button from "./Button";
 const Card = (props) => {
   const ctx = useContext(SharedStore);
   const imagePath = process.env.REACT_APP_IMAGE_URL;
+
+  const handleTrailerClick = () => {
+    ctx.handleModal(true);
+  };
+
   return (
     <>
       {ctx.moviedb.data.map((movie) => (
         <li className={classes.card} key={movie.id}>
           <CardHeader>
             <h4>{movie.title}</h4>
-            <div></div>
-            <h4>{movie.original_language.toUpperCase()}</h4>
+            <div>
+              <p>{movie.original_language.toUpperCase()}</p>
+            </div>
           </CardHeader>
           <CardBody>
             <img src={imagePath + movie.poster_path} alt="poster" />
@@ -24,7 +30,11 @@ const Card = (props) => {
           <CardFooter>
             {movie.overview}
             <div>
-              <Button className={classes.card_button} text="Trailer" />
+              <Button
+                className={classes.card_button}
+                text="Trailer"
+                onClick={handleTrailerClick}
+              />
               <Button className={classes.card_button} text="Watch" />
             </div>
           </CardFooter>

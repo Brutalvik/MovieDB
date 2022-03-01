@@ -13,8 +13,14 @@
 .card_header {
   height: 10vh;
   text-align: center;
-  font-size: 2vw;
+  font-size: 1.5vw;
   padding-top: 10%;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.card_header p {
+  font-size: 1vw;
 }
 
 .card_body {
@@ -49,10 +55,12 @@
   margin-left: 10%;
   margin-top: 10%;
   font-size: 1.5vw;
+  border-radius: 10px;
   cursor: pointer;
   padding: 2% 5%;
   font-weight: bold;
   background-color: rgb(255, 230, 0);
+  user-select: none;
 }
 
 .card_button:active {
@@ -63,9 +71,18 @@
 
 @media (max-width: 768px) {
   .card:hover .overview {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
   .card_button {
+    font-size: 2.5vw;
+  }
+
+  .card_header {
+    height: 5vh;
+    font-size: 3vw;
+    margin: 2%;
+  }
+  .card_header p {
     font-size: 2vw;
   }
 }

@@ -4,6 +4,7 @@ import Banner from "./components/Banner";
 import Store from "./store/Store";
 import classes from "./App.module.css";
 import Movies from "./components/Movies";
+import Modal from "./components/Modal";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       </header>
       <main className={classes.wrapper}>
         <Movies />
+        <Modal />
       </main>
     </Store>
   );

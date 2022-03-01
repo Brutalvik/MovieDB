@@ -1,6 +1,6 @@
 .banner {
   width: auto;
-  height: 100%;
+  height: auto;
   margin-top: -15%;
   display: grid;
   grid-template-rows: 1fr;

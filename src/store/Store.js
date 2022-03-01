@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export const SharedStore = React.createContext({
   searchdb: (searchterm) => {},
+  handleModal: () => {},
 });
 
 const BASE_URL = process.env.REACT_APP_URL;
@@ -17,6 +18,7 @@ const Store = (props) => {
     loaded: false,
     placeholder: "Loading...",
   });
+  const [active, setActive] = useState({ modal: false });
 
   useEffect(() => {
     fetch(URL)
@@ -42,12 +44,26 @@ const Store = (props) => {
     setSearch((prevState) => {
       return { ...prevState, phrase: searchTerm };
     });
-    console.log(search);
+    // console.log(search.phrase);
+    // console.log(searchTerm);
+  };
+
+  const handleModal = (status) => {
+    setActive((prevState) => {
+      return { ...prevState, modal: status };
+    });
+    console.log("Message from Store: " + status);
   };
 
   return (
     <SharedStore.Provider
-      value={{ setSearch: setSearch, searchdb: searchdb, moviedb: moviedb }}
+      value={{
+        setSearch: setSearch,
+        searchdb: searchdb,
+        moviedb: moviedb,
+        handleModal: handleModal,
+        status: active,
+      }}
     >
       {props.children}
     </SharedStore.Provider>
