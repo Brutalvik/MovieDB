@@ -3,10 +3,10 @@ import Search from "./Search";
 const Header = () => {
   return (
     <div className={classes.header_container}>
-      <div>
+      <div className={classes.logo}>
         <h1>MovieDB</h1>
       </div>
-      <div>
+      <div className={classes.search}>
         <Search />
       </div>
     </div>

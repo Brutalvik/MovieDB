@@ -9,3 +9,10 @@
   color: aliceblue;
   margin-left: 2%;
 }
+
+.logo,
+.search {
+  text-align: left;
+  align-items: center;
+  margin-top: 4%;
+}

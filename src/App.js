@@ -6,10 +6,10 @@ import classes from "./App.module.css";
 const App = () => {
   return (
     <Store>
-      <mai className={classes.wrapper}>
+      <main className={classes.wrapper}>
         <Header />
         <Banner />
-      </mai>
+      </main>
     </Store>
   );
 };
