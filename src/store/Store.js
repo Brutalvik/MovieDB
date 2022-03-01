@@ -19,6 +19,7 @@ const Store = (props) => {
     placeholder: "Loading...",
   });
   const [active, setActive] = useState({ modal: false, id: 0 });
+  const [id, setId] = useState({ number: 0 });
 
   useEffect(() => {
     fetch(URL)
@@ -48,11 +49,14 @@ const Store = (props) => {
     // console.log(searchTerm);
   };
 
-  const handleModal = (status, id) => {
+  const handleModal = (status, selectedID) => {
     setActive((prevState) => {
       return { ...prevState, modal: status };
     });
-    console.log("Message from Store: " + status);
+    setId((prevState) => {
+      return { ...prevState, number: selectedID };
+    });
+    console.log(id.number);
   };
 
   return (
@@ -63,6 +67,7 @@ const Store = (props) => {
         moviedb: moviedb,
         handleModal: handleModal,
         status: active,
+        movieId: id.number,
       }}
     >
       {props.children}

@@ -5,14 +5,16 @@ import classes from "./Modal.module.css";
 import Button from "../UI/Button";
 
 const Overlay = (props) => {
-  const id = 71728;
-  const ep = 4;
+  const ctx = useContext(SharedStore);
+  const movie_id = ctx.movieId;
+  const MOVIE_URL = `https://www.2embed.ru/embed/tmdb/movie?id=${movie_id}`;
+
   return (
     <div className={classes.modal_backdrop}>
       <div className={classes.modal_container}>
         <iframe
           className={classes.frame}
-          src={`https://www.2embed.ru/embed/tmdb/tv?id=${id}&s=1&e=${ep}`}
+          src={MOVIE_URL}
           title="movie"
           allow="fullscreen"
         ></iframe>

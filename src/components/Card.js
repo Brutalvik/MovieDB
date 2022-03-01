@@ -9,11 +9,20 @@ import Button from "../UI/Button";
 const Card = (props) => {
   const ctx = useContext(SharedStore);
   const imagePath = process.env.REACT_APP_IMAGE_URL;
+  const [show, setShow] = useState({
+    id: 0,
+  });
 
   const handleTrailerClick = () => {
     ctx.handleModal(true);
   };
 
+  const handleMovieClick = (selectedMovie) => {
+    setShow((prevState) => {
+      return { ...prevState, id: selectedMovie.id };
+    });
+    ctx.handleModal(true, show.id);
+  };
   return (
     <>
       {ctx.moviedb.data.map((movie) => (
@@ -35,7 +44,11 @@ const Card = (props) => {
                 text="Trailer"
                 onClick={handleTrailerClick}
               />
-              <Button className={classes.card_button} text="Watch" />
+              <Button
+                className={classes.card_button}
+                text="Watch"
+                onClick={() => handleMovieClick(movie)}
+              />
             </div>
           </CardFooter>
         </li>
