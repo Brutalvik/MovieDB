@@ -3,10 +3,10 @@
   height: auto;
   text-align: center;
   display: inline-grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: right;
   grid-gap: 1rem;
-  margin-top: 2%;
+  margin-left: 15%;
 }
 
 .searchbar {
@@ -19,7 +19,8 @@
 }
 
 .btn_search {
-  font-size: 2vw;
+  font-size: 1.5vw;
+  font-weight: bold;
   text-align: center;
   cursor: pointer;
   background: #f8faff;
@@ -27,12 +28,13 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  background-color: rgba(255, 230, 0, 0.541);
 }
 
 .btn_search:active {
   transform: scale(0.9);
-  background-color: darken(#f8faff, 5%);
+  background-color: darken(#f8faff, 10%);
   border: 2px solid black;
-  transform: translateY(5px);
   box-shadow: 0 2px 25px aliceblue;
+  background-color: rgb(255, 230, 0);
 }

@@ -7,7 +7,6 @@ export const SharedStore = React.createContext({
 const BASE_URL = process.env.REACT_APP_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 const ENDPOINT = "/discover/movie?sort_by=popularity.desc";
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 const URL = BASE_URL + ENDPOINT + API_KEY;
 
@@ -37,7 +36,6 @@ const Store = (props) => {
           };
         })
       );
-    console.log(moviedb);
   }, []);
 
   const searchdb = (searchTerm) => {
@@ -45,11 +43,12 @@ const Store = (props) => {
       return { ...prevState, phrase: searchTerm };
     });
     console.log(search);
-    console.log(moviedb);
   };
 
   return (
-    <SharedStore.Provider value={{ setSearch: setSearch, searchdb: searchdb }}>
+    <SharedStore.Provider
+      value={{ setSearch: setSearch, searchdb: searchdb, moviedb: moviedb }}
+    >
       {props.children}
     </SharedStore.Provider>
   );
