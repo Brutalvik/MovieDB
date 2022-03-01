@@ -43,7 +43,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: aliceblue;
+  background-color: #000;
+  color: aliceblue;
   padding: 2rem;
   display: block;
   font-size: 1vw;

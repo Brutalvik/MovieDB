@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import classes from "./Card.module.css";
-import CardHeader from "./CardHeader";
-import CardBody from "./CardBody";
+import React, { useContext, useState } from "react";
+import classes from "../UI/Card.module.css";
+import CardHeader from "../UI/CardHeader";
+import CardBody from "../UI/CardBody";
 import { SharedStore } from "../store/Store";
-import CardFooter from "./CardFooter";
-import Button from "./Button";
+import CardFooter from "../UI/CardFooter";
+import Button from "../UI/Button";
 
 const Card = (props) => {
   const ctx = useContext(SharedStore);

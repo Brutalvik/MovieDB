@@ -18,7 +18,7 @@ const Store = (props) => {
     loaded: false,
     placeholder: "Loading...",
   });
-  const [active, setActive] = useState({ modal: false });
+  const [active, setActive] = useState({ modal: false, id: 0 });
 
   useEffect(() => {
     fetch(URL)
@@ -48,7 +48,7 @@ const Store = (props) => {
     // console.log(searchTerm);
   };
 
-  const handleModal = (status) => {
+  const handleModal = (status, id) => {
     setActive((prevState) => {
       return { ...prevState, modal: status };
     });

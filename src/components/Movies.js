@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Movies.module.css";
-import Card from "../UI/Card";
+import Card from "./Card";
 
 const Movies = (props) => {
   return (
