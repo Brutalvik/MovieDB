@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import classes from "../UI/Card.module.css";
 import CardHeader from "../UI/CardHeader";
 import CardBody from "../UI/CardBody";
@@ -9,20 +9,15 @@ import Button from "../UI/Button";
 const Card = (props) => {
   const ctx = useContext(SharedStore);
   const imagePath = process.env.REACT_APP_IMAGE_URL;
-  const [show, setShow] = useState({
-    id: 0,
-  });
 
-  const handleTrailerClick = () => {
-    ctx.handleModal(true);
+  const handleClick = (recievedId) => {
+    ctx.setShow((prevState) => ({
+      ...prevState,
+      status: true,
+      id: recievedId,
+    }));
   };
 
-  const handleMovieClick = (selectedMovie) => {
-    setShow((prevState) => {
-      return { ...prevState, id: selectedMovie.id };
-    });
-    ctx.handleModal(true, show.id);
-  };
   return (
     <>
       {ctx.moviedb.data.map((movie) => (
@@ -42,12 +37,12 @@ const Card = (props) => {
               <Button
                 className={classes.card_button}
                 text="Trailer"
-                onClick={handleTrailerClick}
+                onClick={() => handleClick(movie.id)}
               />
               <Button
                 className={classes.card_button}
                 text="Watch"
-                onClick={() => handleMovieClick(movie)}
+                onClick={() => handleClick(movie.id)}
               />
             </div>
           </CardFooter>

@@ -33,11 +33,11 @@ const Modal = (props) => {
   const ctx = useContext(SharedStore);
 
   const handleModalClose = () => {
-    ctx.handleModal(false);
+    ctx.setShow({ status: false, id: 0 });
   };
   return (
     <>
-      {ctx.status.modal &&
+      {ctx.status &&
         ReactDOM.createPortal(
           <Overlay context={ctx} handleModalClose={handleModalClose} />,
           document.getElementById("modaloverlay")

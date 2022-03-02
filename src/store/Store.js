@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 export const SharedStore = React.createContext({
   searchdb: (searchterm) => {},
-  handleModal: () => {},
 });
 
 const BASE_URL = process.env.REACT_APP_URL;
@@ -18,8 +17,7 @@ const Store = (props) => {
     loaded: false,
     placeholder: "Loading...",
   });
-  const [active, setActive] = useState({ modal: false, id: 0 });
-  const [id, setId] = useState({ number: 0 });
+  const [show, setShow] = useState({ status: false, id: 0 });
 
   useEffect(() => {
     fetch(URL)
@@ -45,19 +43,11 @@ const Store = (props) => {
     setSearch((prevState) => {
       return { ...prevState, phrase: searchTerm };
     });
-    // console.log(search.phrase);
-    // console.log(searchTerm);
   };
 
-  const handleModal = (status, selectedID) => {
-    setActive((prevState) => {
-      return { ...prevState, modal: status };
-    });
-    setId((prevState) => {
-      return { ...prevState, number: selectedID };
-    });
-    console.log(id.number);
-  };
+  useEffect(() => {
+    console.log(show);
+  }, [show]);
 
   return (
     <SharedStore.Provider
@@ -65,9 +55,9 @@ const Store = (props) => {
         setSearch: setSearch,
         searchdb: searchdb,
         moviedb: moviedb,
-        handleModal: handleModal,
-        status: active,
-        movieId: id.number,
+        status: show.status,
+        movieId: show.id,
+        setShow: setShow,
       }}
     >
       {props.children}
