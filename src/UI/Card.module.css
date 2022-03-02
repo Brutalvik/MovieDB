@@ -1,6 +1,6 @@
 .card,
-.card_search {
-  width: 100%;
+.card_banner {
+  width: auto;
   height: auto;
   margin: 5%;
   display: grid;
@@ -11,9 +11,9 @@
   position: relative;
 }
 
-.card_search {
-  width: 80%;
-  margin: 0;
+.card_banner {
+  background-color: aliceblue;
+  box-shadow: 1px 1px 20px rgba(245, 240, 240, 0.342);
 }
 
 .card_header {
@@ -39,7 +39,8 @@
   display: none;
 }
 
-.card:hover .overview {
+.card:hover .overview,
+.card_banner:hover .overview {
   height: auto;
   position: absolute;
   left: 0;
@@ -51,6 +52,19 @@
   display: block;
   font-size: 1vw;
   border-radius: 10px;
+}
+
+.card_banner:hover .overview .card_button {
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 10%;
+  font-size: 1.5vw;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 2% 5%;
+  font-weight: bold;
+  background-color: rgb(255, 230, 0);
+  user-select: none;
 }
 
 .card_button {

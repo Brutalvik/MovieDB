@@ -33,6 +33,7 @@
   height: auto;
   border-radius: 5px;
   user-select: none;
+  background-color: transparent;
 }
 
 .modal_container h2 {

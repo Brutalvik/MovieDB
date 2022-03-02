@@ -23,14 +23,10 @@ const Searchresults = () => {
   return (
     <React.Fragment>
       {data.map((search) => (
-        <li className={classes.card_search}>
-          <CardHeader>
-            <span>{search.title}</span>
-          </CardHeader>
+        <li className={classes.card_banner}>
+          <CardHeader>{search.title}</CardHeader>
           <CardBody>
-            <span>
-              <img src={imagePath + search.poster_path} alt={search.title} />
-            </span>
+            <img src={imagePath + search.poster_path} alt={search.title} />
           </CardBody>
           <CardFooter>
             {search.overview}

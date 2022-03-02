@@ -9,19 +9,18 @@
 img {
   width: 100%;
   height: auto;
-  position: inherit;
+  position: relative;
 }
 
-.search_results {
-  background-color: transparent;
-  width: auto;
-  margin: 1%;
-  height: 50vh;
-  position: inherit;
-  border: 2px solid black;
+.display {
+  position: absolute;
+  width: 80%;
+  height: 75%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1em;
-  /* grid-auto-flow: column; */
-  overflow-y: hidden;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20%;
+  margin-left: 10%;
+  background-color: transparent;
+  overflow: auto;
+  grid-gap: 5em;
 }
