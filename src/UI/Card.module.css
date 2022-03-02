@@ -12,8 +12,15 @@
 }
 
 .card_banner {
+  width: 20%;
+  height: auto;
+  margin-top: 5%;
+  margin-left: 3%;
+  display: block;
   background-color: aliceblue;
   box-shadow: 1px 1px 20px rgba(245, 240, 240, 0.342);
+  cursor: pointer;
+  transform: rotate(90deg) translateY(-100px);
 }
 
 .card_header {
@@ -99,6 +106,10 @@
     font-size: 3vw;
     margin: 2%;
   }
+
+  .card_banner {
+    margin-left: -5%;
+  }
 }
 
 @media (min-width: 801px) and (max-width: 1400px) {
@@ -113,5 +124,9 @@
     height: 4vh;
     font-size: 3vw;
     margin: 2%;
+  }
+
+  .card_banner {
+    margin-left: 0%;
   }
 }

@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className={classes.banner}>
       <img src={bannerImage} alt="banner" />
-      <div className={classes.display}>
+      <div className={classes.horizontal_wrapper}>
         <Searchresults />
       </div>
     </div>

@@ -4,9 +4,12 @@ import Card from "./Card";
 
 const Movies = (props) => {
   return (
-    <ul className={classes.card_container}>
-      <Card />
-    </ul>
+    <div className={classes.movieheader}>
+      <h1>Popular Movies</h1>
+      <ul className={classes.card_container}>
+        <Card />
+      </ul>
+    </div>
   );
 };
 

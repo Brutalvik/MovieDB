@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { SharedStore } from "../store/Store";
-import CardHeader from "../UI/CardHeader";
 import CardBody from "../UI/CardBody";
 import CardFooter from "../UI/CardFooter";
 import Button from "../UI/Button";
@@ -23,8 +22,7 @@ const Searchresults = () => {
   return (
     <React.Fragment>
       {data.map((search) => (
-        <li className={classes.card_banner}>
-          <CardHeader>{search.title}</CardHeader>
+        <div className={classes.card_banner}>
           <CardBody>
             <img src={imagePath + search.poster_path} alt={search.title} />
           </CardBody>
@@ -43,7 +41,7 @@ const Searchresults = () => {
               />
             </div>
           </CardFooter>
-        </li>
+        </div>
       ))}
     </React.Fragment>
   );

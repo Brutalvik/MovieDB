@@ -6,6 +6,10 @@
   column-gap: 2%;
 }
 
+.movieheader {
+  margin: 2%;
+}
+
 @media (max-width: 800px) {
   .card_container {
     grid-template-columns: repeat(2, 1fr);

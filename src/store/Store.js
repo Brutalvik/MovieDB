@@ -7,11 +7,12 @@ export const SharedStore = React.createContext({
 const BASE_URL = process.env.REACT_APP_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 const DISCOVER_ENDPOINT = process.env.REACT_APP_DISCOVER_ENDPOINT;
-const SEARCH_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
+const SEARCH_MOVIE_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
+const SEARCH_TV_ENDPOINT = "/search/tv?";
 
 const DISCOVER_URL = BASE_URL + DISCOVER_ENDPOINT + API_KEY;
-const SEARCH_MOVIE_URL = BASE_URL + SEARCH_ENDPOINT + API_KEY;
-
+const SEARCH_MOVIE_URL = BASE_URL + SEARCH_MOVIE_ENDPOINT + API_KEY;
+const SEARCH_TV_URL = `${BASE_URL}${SEARCH_TV_ENDPOINT}${API_KEY}`;
 const Store = (props) => {
   const [search, setSearch] = useState("");
   const [moviedb, setMovieDb] = useState({
@@ -52,7 +53,7 @@ const Store = (props) => {
   //SEARCH_ENDPOINT_FOR_MOVIE
   useEffect(() => {
     fetch(
-      `${SEARCH_MOVIE_URL}&language=en-US&query=${search}&page=1&include_adult=false`
+      `${SEARCH_MOVIE_URL}&language=en-US&query=${search}&include_adult=false`
     )
       .then((res) => {
         if (res.status !== 200) {
@@ -71,13 +72,34 @@ const Store = (props) => {
           };
         })
       );
-    // .then((result) => {
-    //   console.log(result.total_pages);
-    // });
   }, [search]);
+
+  // //SEARCH_ENDPOINT_FOR_TV
+  // useEffect(() => {
+  //   fetch(
+  //     `${SEARCH_TV_URL}&language=en-US&page=1&include_adult=false&query=${search}`
+  //   )
+  //     .then((res) => {
+  //       if (res.status !== 200) {
+  //         throw new Error(res.statusText);
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((result) =>
+  //       setSearchdb((prevState) => {
+  //         return {
+  //           ...prevState,
+  //           data: result.results,
+  //           loaded: true,
+  //           placeholder: "",
+  //         };
+  //       })
+  //     );
+  // }, [search]);
 
   const handleSearchQuery = (e) => {
     e.preventDefault();
+    console.log(searchdb);
   };
 
   return (
