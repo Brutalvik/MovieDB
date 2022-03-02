@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import classes from "./Search.module.css";
 import Input from "../UI/Input";
 import Button from "../UI/Button";
@@ -6,24 +6,22 @@ import { SharedStore } from "../store/Store";
 
 const Search = () => {
   const ctx = useContext(SharedStore);
-  const [searchTerm, setSearchTerm] = useState({ text: "" });
+  const [query, setQuery] = useState("");
   const handleChange = (e) => {
     e.preventDefault();
-    setSearchTerm((prevState) => {
-      return { ...prevState, text: e.target.value };
-    });
+    setQuery(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    ctx.searchdb(searchTerm.text);
-  };
+  useEffect(() => {
+    ctx.getSearch(query);
+  });
+
   return (
-    <form className={classes.search_container} onSubmit={handleSubmit}>
+    <form className={classes.search_container} onSubmit={ctx.getSearchQuery}>
       <div>
         <Input
           className={classes.searchbar}
-          value={searchTerm.text}
+          value={query}
           onChange={handleChange}
         />
       </div>

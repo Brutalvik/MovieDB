@@ -7,7 +7,7 @@ import Button from "../UI/Button";
 const Overlay = (props) => {
   const ctx = useContext(SharedStore);
   const movie_id = ctx.movieId;
-  const MOVIE_URL = `https://www.2embed.ru/embed/tmdb/movie?id=${movie_id}`;
+  const MOVIE_URL = `https://www.2embed.ru/embed/tmdb/movie?id=${movie_id}?autoplay=1`;
 
   return (
     <div className={classes.modal_backdrop}>

@@ -12,7 +12,7 @@
   }
 }
 
-@media (min-width: 801px) and (max-width: 1300px) {
+@media (min-width: 801px) and (max-width: 1400px) {
   .card_container {
     grid-template-columns: repeat(3, 1fr);
   }

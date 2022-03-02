@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import classes from "../UI/Card.module.css";
 import CardHeader from "../UI/CardHeader";
 import CardBody from "../UI/CardBody";
@@ -22,11 +22,9 @@ const Card = (props) => {
     <>
       {ctx.moviedb.data.map((movie) => (
         <li className={classes.card} key={movie.id}>
+          {/* {console.log(movie)} */}
           <CardHeader>
             <h4>{movie.title}</h4>
-            <div>
-              <p>{movie.original_language.toUpperCase()}</p>
-            </div>
           </CardHeader>
           <CardBody>
             <img src={imagePath + movie.poster_path} alt="poster" />
