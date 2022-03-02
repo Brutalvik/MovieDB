@@ -1,4 +1,5 @@
-.card {
+.card,
+.card_search {
   width: 100%;
   height: auto;
   margin: 5%;
@@ -8,6 +9,11 @@
   border-radius: 10px;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 1);
   position: relative;
+}
+
+.card_search {
+  width: 80%;
+  margin: 0;
 }
 
 .card_header {

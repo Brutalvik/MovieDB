@@ -1,45 +1,49 @@
 import React, { useContext } from "react";
-import classes from "../UI/Card.module.css";
 import { SharedStore } from "../store/Store";
 import CardHeader from "../UI/CardHeader";
 import CardBody from "../UI/CardBody";
 import CardFooter from "../UI/CardFooter";
 import Button from "../UI/Button";
+import classes from "../UI/Card.module.css";
 
-const Card = (props) => {
-  const ctx = useContext(SharedStore);
-  const imagePath = process.env.REACT_APP_IMAGE_URL;
+const imagePath = process.env.REACT_APP_IMAGE_URL;
+
+const Searchresults = () => {
+  const results = useContext(SharedStore);
+  const data = results.searchdb.data;
+  const pages = results.searchdb.pages;
 
   const handleClick = (recievedId) => {
-    ctx.setShow((prevState) => ({
+    results.setShow((prevState) => ({
       ...prevState,
       status: true,
       id: recievedId,
     }));
   };
-
   return (
     <React.Fragment>
-      {ctx.moviedb.data.map((movie) => (
-        <li className={classes.card} key={movie.id}>
+      {data.map((search) => (
+        <li className={classes.card_search}>
           <CardHeader>
-            <h4>{movie.title}</h4>
+            <span>{search.title}</span>
           </CardHeader>
           <CardBody>
-            <img src={imagePath + movie.poster_path} alt="poster" />
+            <span>
+              <img src={imagePath + search.poster_path} alt={search.title} />
+            </span>
           </CardBody>
           <CardFooter>
-            {movie.overview}
+            {search.overview}
             <div>
               <Button
                 className={classes.card_button}
                 text="Trailer"
-                onClick={() => handleClick(movie.id)}
+                onClick={() => handleClick(search.id)}
               />
               <Button
                 className={classes.card_button}
                 text="Watch"
-                onClick={() => handleClick(movie.id)}
+                onClick={() => handleClick(search.id)}
               />
             </div>
           </CardFooter>
@@ -49,4 +53,4 @@ const Card = (props) => {
   );
 };
 
-export default Card;
+export default Searchresults;

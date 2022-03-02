@@ -21,6 +21,7 @@ const Store = (props) => {
   });
   const [searchdb, setSearchdb] = useState({
     data: [],
+    pages: 0,
     loaded: false,
     placeholder: "Loading...",
   });
@@ -40,6 +41,7 @@ const Store = (props) => {
           return {
             ...prevState,
             data: result.results,
+
             loaded: true,
             placeholder: "",
           };
@@ -63,16 +65,19 @@ const Store = (props) => {
           return {
             ...prevState,
             data: result.results,
+            pages: result.total_pages,
             loaded: true,
             placeholder: "",
           };
         })
       );
+    // .then((result) => {
+    //   console.log(result.total_pages);
+    // });
   }, [search]);
 
   const handleSearchQuery = (e) => {
     e.preventDefault();
-    console.log(searchdb.data);
   };
 
   return (

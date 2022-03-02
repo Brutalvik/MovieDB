@@ -1,9 +1,13 @@
 import bannerImage from "../assets/banner.jpg";
 import classes from "./Banner.module.css";
+import Searchresults from "../components/Searchresults";
 const Banner = () => {
   return (
     <div className={classes.banner}>
       <img src={bannerImage} alt="banner" />
+      <div className={classes.search_results}>
+        <Searchresults />
+      </div>
     </div>
   );
 };
