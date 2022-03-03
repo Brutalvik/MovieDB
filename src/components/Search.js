@@ -8,7 +8,6 @@ const Search = () => {
   const ctx = useContext(SharedStore);
   const autocomplete = ctx.searchdb.data;
   const [query, setQuery] = useState("");
-  const [suggest, setSuggest] = useState(false);
   const handleChange = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
@@ -29,7 +28,7 @@ const Search = () => {
         />
         <div className={classes.suggest}>
           {autocomplete
-            .filter((suggestion) => suggestion.original_title.includes(query))
+            .filter((suggestion) => suggestion.original_title === query)
             .map((filteredRes) => (
               <h5>{filteredRes.original_title}</h5>
             ))}

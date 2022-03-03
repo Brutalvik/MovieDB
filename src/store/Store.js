@@ -74,28 +74,28 @@ const Store = (props) => {
       );
   }, [search]);
 
-  // //SEARCH_ENDPOINT_FOR_TV
-  // useEffect(() => {
-  //   fetch(
-  //     `${SEARCH_TV_URL}&language=en-US&page=1&include_adult=false&query=${search}`
-  //   )
-  //     .then((res) => {
-  //       if (res.status !== 200) {
-  //         throw new Error(res.statusText);
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((result) =>
-  //       setSearchdb((prevState) => {
-  //         return {
-  //           ...prevState,
-  //           data: result.results,
-  //           loaded: true,
-  //           placeholder: "",
-  //         };
-  //       })
-  //     );
-  // }, [search]);
+  //SEARCH_ENDPOINT_FOR_TV
+  useEffect(() => {
+    fetch(
+      `${SEARCH_TV_URL}&language=en-US&page=1&include_adult=false&query=${search}`
+    )
+      .then((res) => {
+        if (res.status !== 200) {
+          throw new Error(res.statusText);
+        }
+        return res.json();
+      })
+      .then((result) =>
+        setSearchdb((prevState) => {
+          return {
+            ...prevState,
+            data: result.results,
+            loaded: true,
+            placeholder: "",
+          };
+        })
+      );
+  }, [search]);
 
   const handleSearchQuery = (e) => {
     e.preventDefault();
