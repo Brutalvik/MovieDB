@@ -1,0 +1,45 @@
+.toggle_container {
+  width: 20%;
+  height: 20%;
+  margin: 5%;
+  margin-left: 50%;
+  border-radius: 20px;
+  padding: 1%;
+}
+
+.toggle_container.dark {
+  border: 2px solid rgb(196, 211, 224);
+}
+
+.toggle_container.light {
+  border: 2px solid black;
+}
+
+.toggle_button {
+  border: 1px solid black;
+  width: 40%;
+  height: 120%;
+  margin-top: -4%;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.toggle_button.left {
+  float: left;
+  background-color: black;
+}
+
+.toggle_button.right {
+  float: right;
+  background-color: rgb(196, 211, 224);
+}
+
+.toggle_button:active {
+  transition: float 2s;
+}
+
+.toggletext {
+  margin-left: 50%;
+  margin-top: -5%;
+  font-size: 1vw;
+}

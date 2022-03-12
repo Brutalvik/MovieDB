@@ -1,23 +1,19 @@
 import React from "react";
-import Header from "./components/Header";
-import Banner from "./components/Banner";
-import Store from "./store/Store";
+import { useSelector } from "react-redux";
+import Header from "./components/Header/Header";
 import classes from "./App.module.css";
-import Movies from "./components/Movies";
-import Modal from "./components/Modal";
 
 const App = () => {
+  const clicked = useSelector((state) => state.clicked);
   return (
-    <Store>
+    <div
+      className={`${classes.main} ${!clicked ? classes.light : classes.dark}`}
+    >
       <header>
         <Header />
-        <Banner />
       </header>
-      <main className={classes.wrapper}>
-        <Movies />
-        <Modal />
-      </main>
-    </Store>
+      <main className={classes.wrapper}></main>
+    </div>
   );
 };
 

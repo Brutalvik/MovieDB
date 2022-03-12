@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export const SharedStore = React.createContext({
   handleSearchQuery: () => {},
+  toggleMode: () => {},
 });
 
 const BASE_URL = process.env.REACT_APP_URL;
@@ -14,6 +15,8 @@ const DISCOVER_URL = BASE_URL + DISCOVER_ENDPOINT + API_KEY;
 const SEARCH_MOVIE_URL = BASE_URL + SEARCH_MOVIE_ENDPOINT + API_KEY;
 const SEARCH_TV_URL = `${BASE_URL}${SEARCH_TV_ENDPOINT}${API_KEY}`;
 const Store = (props) => {
+  const [mode, setMode] = useState({ mode: false });
+
   const [search, setSearch] = useState("");
   const [moviedb, setMovieDb] = useState({
     data: [],
@@ -97,24 +100,18 @@ const Store = (props) => {
       );
   }, [search]);
 
+  //Functions
+  const toggleMode = useEffect(() => {
+    setMode(false);
+  }, [mode]);
+
   const handleSearchQuery = (e) => {
     e.preventDefault();
     console.log(searchdb);
   };
 
   return (
-    <SharedStore.Provider
-      value={{
-        setSearch: setSearch,
-        moviedb: moviedb,
-        searchdb: searchdb,
-        status: show.status,
-        movieId: show.id,
-        setShow: setShow,
-        getSearch: setSearch,
-        getSearchQuery: handleSearchQuery,
-      }}
-    >
+    <SharedStore.Provider value={{ toggleMode }}>
       {props.children}
     </SharedStore.Provider>
   );
