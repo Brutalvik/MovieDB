@@ -9,10 +9,10 @@
   margin-left: 2%;
 }
 
-.logo,
 .search {
   align-items: center;
-  margin-top: 4%;
+  margin-top: 2%;
+  text-align: center;
 }
 
 .logo h1 {
