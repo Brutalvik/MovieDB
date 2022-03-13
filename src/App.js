@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import classes from "./App.module.css";
 
 const App = () => {
-  const clicked = useSelector((state) => state.clicked);
+  const clicked = useSelector((state) => state.headerReducer.clicked);
   return (
     <div
       className={`${classes.main} ${!clicked ? classes.light : classes.dark}`}

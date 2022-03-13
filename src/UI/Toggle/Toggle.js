@@ -1,13 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { headerActions } from "../../store/store";
 import classes from "./Toggle.module.css";
 
 const Toggle = () => {
   const dispatch = useDispatch();
-  const clicked = useSelector((state) => state.clicked);
+  const clicked = useSelector((state) => state.headerReducer.clicked);
 
   const toggleHandler = () => {
-    dispatch({ type: "clicked" });
+    dispatch(headerActions.toggle());
   };
   return (
     <>
