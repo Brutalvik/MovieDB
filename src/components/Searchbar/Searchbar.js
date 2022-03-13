@@ -12,7 +12,7 @@ const Searchbar = () => {
   };
   return (
     <>
-      <Input onChange={handleSearchQuery} />
+      <Input type="search" onChange={handleSearchQuery} />
     </>
   );
 };
