@@ -24,7 +24,7 @@ const Toggle = () => {
           }`}
         ></div>
       </div>
-      <h4 className={classes.toggletext}>Toggle Mode</h4>
+      <h4 className={classes.toggletext}>{clicked ? "Dark" : "Light"} Mode</h4>
     </>
   );
 };
