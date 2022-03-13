@@ -18,7 +18,7 @@
 .toggle_button {
   border: 1px solid black;
   width: 40%;
-  height: 120%;
+  height: 100%;
   margin-top: -3%;
   border-radius: 20px;
   cursor: pointer;
@@ -32,10 +32,6 @@
 .toggle_button.right {
   float: right;
   background-color: rgb(196, 211, 224);
-}
-
-.toggle_button:active {
-  transition: float 2s;
 }
 
 .toggletext {

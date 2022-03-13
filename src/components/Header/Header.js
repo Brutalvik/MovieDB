@@ -8,8 +8,8 @@ import { headerActions } from "../../store/store";
 const Header = () => {
   const dispatch = useDispatch();
   const query = useSelector((state) => state.headerReducer.value);
-  const result = useSelector((state) => console.log(state));
-  // const results = useSelector((state) => console.log(state));
+  // const result = useSelector((state) => console.log(state));
+
   const BASE_URL = process.env.REACT_APP_URL;
   const API_KEY = process.env.REACT_APP_API_KEY;
   const SEARCH_MOVIE_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
@@ -31,9 +31,9 @@ const Header = () => {
       <div className={classes.logo}>
         <h1>MovieDB</h1>
       </div>
+      <div></div>
       <div className={classes.search}>
         <Searchbar />
-        <div></div>
       </div>
       <div className={classes.toggle}>
         <Toggle />
