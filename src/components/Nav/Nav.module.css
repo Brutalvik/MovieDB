@@ -1,0 +1,17 @@
+.nav_container {
+  border: 1px solid yellow;
+  margin-top: 2%;
+}
+
+.nav_container li {
+  display: inline;
+  margin-left: 10%;
+  font-size: 1.5vw;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav_container li:active {
+  zoom: 90%;
+}

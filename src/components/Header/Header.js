@@ -3,6 +3,7 @@ import classes from "./Header.module.css";
 import Toggle from "../../UI/Toggle/Toggle";
 import Searchbar from "../Searchbar/Searchbar";
 import Autocomplete from "../Autocomplete/Autocomplete";
+import Nav from "../Nav/Nav";
 import { useSelector, useDispatch } from "react-redux";
 import { headerActions } from "../../store/store";
 
@@ -33,7 +34,9 @@ const Header = () => {
       <div className={classes.logo}>
         <h1>MovieDB</h1>
       </div>
-      <div></div>
+      <div>
+        <Nav />
+      </div>
       <div className={classes.search}>
         <Searchbar />
         {search ? <Autocomplete /> : null}

@@ -2,7 +2,6 @@
   width: 80%;
   height: auto;
   margin-left: 10%;
-  margin-top: 2%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 4%;
@@ -29,7 +28,7 @@
   font-style: italic;
 }
 
-.img {
+img {
   max-width: 100%;
   height: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 10);
