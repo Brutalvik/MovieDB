@@ -6,6 +6,7 @@ const initialState = {
   searchValue: "",
   value: "",
   results: [],
+  genres: [],
 };
 const headerSlice = createSlice({
   name: "headerReducer",
@@ -22,6 +23,9 @@ const headerSlice = createSlice({
     },
     selectedSearch(state, action) {
       state.searchValue = action.payload;
+    },
+    getGenres(state, action) {
+      state.genres = action.payload;
     },
   },
 });

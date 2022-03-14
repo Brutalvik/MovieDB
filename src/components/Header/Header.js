@@ -10,17 +10,15 @@ const Header = () => {
   const dispatch = useDispatch();
   const query = useSelector((state) => state.headerReducer.value);
   const search = useSelector((state) => state.headerReducer.value);
-  // const result = useSelector((state) => console.log(state));
 
   const BASE_URL = process.env.REACT_APP_URL;
   const API_KEY = process.env.REACT_APP_API_KEY;
   const SEARCH_MOVIE_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
+  const FETCH_URL = `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 
   useEffect(() => {
     if (query) {
-      fetch(
-        `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
-      )
+      fetch(FETCH_URL)
         .then((response) => {
           return response.json();
         })
@@ -28,7 +26,7 @@ const Header = () => {
           dispatch(headerActions.results(data.results));
         });
     }
-  }, [BASE_URL, SEARCH_MOVIE_ENDPOINT, API_KEY, dispatch, query]);
+  }, [BASE_URL, SEARCH_MOVIE_ENDPOINT, API_KEY, dispatch, query, FETCH_URL]);
 
   return (
     <div className={classes.header_container}>

@@ -1,6 +1,54 @@
-.btn {
-  width: auto;
-  height: 100%;
-  padding: 10% 20%;
+/* Gradient Button CSS */
+/* Light mode */
+.btn_light {
+  background-image: linear-gradient(
+    to right,
+    #000000 0%,
+    #434343 51%,
+    #000000 100%
+  );
+}
+.btn_light,
+.btn_dark {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
   border-radius: 20px;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.btn_light:hover,
+.btn_dark:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn_light:active,
+.btn_dark:active {
+  transform: scale(0.5);
+}
+
+/* Dark Mode */
+
+.btn_dark {
+  background-image: linear-gradient(
+    to right,
+    #ff8008 0%,
+    #ffc837 51%,
+    #ff8008 100%
+  );
+}
+.btn_dark {
+  color: black;
+}
+
+.btn_dark:hover {
+  color: black;
 }

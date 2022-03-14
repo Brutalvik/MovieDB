@@ -5,7 +5,6 @@ import { headerActions } from "../../store/store";
 
 const Autocomplete = () => {
   const dispatch = useDispatch();
-  //   const test = useSelector((state) => console.log(state.headerReducer.results));
   const suggestions = useSelector((state) => state.headerReducer.results);
   const query = useSelector((state) => state.headerReducer.value);
   const clicked = useSelector((state) => state.headerReducer.clicked);
