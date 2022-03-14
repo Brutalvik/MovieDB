@@ -1,10 +1,11 @@
 import React from "react";
 import Input from "../../UI/Input/Input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { headerActions } from "../../store/store";
 
 const Searchbar = () => {
   const dispatch = useDispatch();
+  const query = useSelector((state) => state.headerReducer.value);
 
   const handleSearchQuery = (event) => {
     event.preventDefault();
@@ -12,7 +13,12 @@ const Searchbar = () => {
   };
   return (
     <>
-      <Input type="search" onChange={handleSearchQuery} />
+      <Input
+        placeholder="Search for Movies/TV"
+        type="search"
+        value={query}
+        onChange={handleSearchQuery}
+      />
     </>
   );
 };

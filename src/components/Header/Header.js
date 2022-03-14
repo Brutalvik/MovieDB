@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import classes from "./Header.module.css";
 import Toggle from "../../UI/Toggle/Toggle";
 import Searchbar from "../Searchbar/Searchbar";
+import Autocomplete from "../Autocomplete/Autocomplete";
 import { useSelector, useDispatch } from "react-redux";
 import { headerActions } from "../../store/store";
 
@@ -15,15 +16,17 @@ const Header = () => {
   const SEARCH_MOVIE_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
 
   useEffect(() => {
-    fetch(
-      `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        dispatch(headerActions.results(data.results));
-      });
+    if (query) {
+      fetch(
+        `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+      )
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          dispatch(headerActions.results(data.results));
+        });
+    }
   }, [BASE_URL, SEARCH_MOVIE_ENDPOINT, API_KEY, dispatch, query]);
 
   return (
@@ -34,6 +37,7 @@ const Header = () => {
       <div></div>
       <div className={classes.search}>
         <Searchbar />
+        <Autocomplete />
       </div>
       <div className={classes.toggle}>
         <Toggle />

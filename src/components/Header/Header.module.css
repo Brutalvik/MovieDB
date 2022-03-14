@@ -5,7 +5,7 @@
   grid-template-columns: 1fr 2fr 1.5fr 1fr;
   background-color: transparent;
   z-index: 1;
-  position: relative;
+  position: fixed;
   padding: 1%;
 }
 

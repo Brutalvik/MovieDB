@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
 import classes from "./App.module.css";
 
 const App = () => {
@@ -12,7 +13,9 @@ const App = () => {
       <header>
         <Header />
       </header>
-      <main className={classes.wrapper}></main>
+      <main className={classes.wrapper}>
+        <Home />
+      </main>
     </div>
   );
 };

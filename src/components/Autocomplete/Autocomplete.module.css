@@ -1,0 +1,24 @@
+.autocomplete {
+  position: fixed;
+  z-index: 1;
+  margin-left: 4%;
+  width: auto;
+  height: auto;
+}
+
+.autocomplete.dark,
+.suggestions.dark {
+  color: aliceblue;
+  border: 1px solid aliceblue;
+}
+
+.autocomplete.light,
+.suggestions.light {
+  color: black;
+  border: 1px solid black;
+}
+.suggestions {
+  text-align: left;
+  font-size: 1.5vw;
+  cursor: pointer;
+}
