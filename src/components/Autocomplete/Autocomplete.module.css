@@ -6,6 +6,10 @@
   height: auto;
 }
 
+.autocomplete.no_display {
+  display: none;
+}
+
 .autocomplete.dark,
 .suggestions.dark {
   color: aliceblue;

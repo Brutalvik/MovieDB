@@ -9,6 +9,7 @@ import { headerActions } from "../../store/store";
 const Header = () => {
   const dispatch = useDispatch();
   const query = useSelector((state) => state.headerReducer.value);
+  const search = useSelector((state) => state.headerReducer.value);
   // const result = useSelector((state) => console.log(state));
 
   const BASE_URL = process.env.REACT_APP_URL;
@@ -37,9 +38,9 @@ const Header = () => {
       <div></div>
       <div className={classes.search}>
         <Searchbar />
-        <Autocomplete />
+        {search ? <Autocomplete /> : null}
       </div>
-      <div className={classes.toggle}>
+      <div>
         <Toggle />
       </div>
     </div>

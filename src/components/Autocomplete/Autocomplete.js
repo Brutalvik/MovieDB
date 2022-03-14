@@ -14,7 +14,6 @@ const Autocomplete = () => {
     dispatch(headerActions.selectedSearch(value));
     dispatch(headerActions.search(""));
   };
-
   const getSuggestions = query
     ? suggestions.map((suggestion) => {
         return (
@@ -23,7 +22,7 @@ const Autocomplete = () => {
               clicked ? classes.dark : classes.light
             }`}
             key={suggestion.id}
-            onClick={() => handleSearchQuery(suggestion.original_title)}
+            onClick={() => handleSearchQuery(suggestion.id)}
           >
             {suggestion.original_title}
           </p>

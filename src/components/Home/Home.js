@@ -1,9 +1,14 @@
 import React from "react";
 import classes from "./Home.module.css";
-import { useSelector, useDispatch } from "react-redux";
+
+import Results from "../Results/Results";
 
 const Home = () => {
-  return <div className={classes.main_container}></div>;
+  return (
+    <div className={classes.main_container}>
+      <Results />
+    </div>
+  );
 };
 
 export default Home;
