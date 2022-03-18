@@ -1,12 +1,12 @@
 import React from "react";
 import classes from "./Home.module.css";
 
-import Results from "../Results/Results";
+import Trending from "../Trending/Trending";
 
 const Home = () => {
   return (
     <div className={classes.main_container}>
-      <Results />
+      <Trending />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { headerActions } from "../../store/store";
 
 const Searchbar = () => {
   const dispatch = useDispatch();
+
   const query = useSelector((state) => state.headerReducer.value);
 
   const handleSearchQuery = (event) => {

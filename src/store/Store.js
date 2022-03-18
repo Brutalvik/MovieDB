@@ -7,6 +7,7 @@ const initialState = {
   value: "",
   results: [],
   genres: [],
+  trending: [],
 };
 const headerSlice = createSlice({
   name: "headerReducer",
@@ -26,6 +27,9 @@ const headerSlice = createSlice({
     },
     getGenres(state, action) {
       state.genres = action.payload;
+    },
+    getTrendings(state, action) {
+      state.trending = action.payload;
     },
   },
 });

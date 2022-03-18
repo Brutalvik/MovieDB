@@ -18,4 +18,10 @@
 .logo h1 {
   font-size: 3vw;
   margin-top: -1%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.logo h1:active {
+  zoom: 90%;
 }

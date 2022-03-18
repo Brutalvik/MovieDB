@@ -1,0 +1,15 @@
+.scrolling_wrapper {
+  position: absolute;
+  transform: rotate(-90deg);
+  margin-left: 35%;
+  margin-top: -30%;
+  width: 30%;
+  height: 190vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.poster {
+  width: 60%;
+  height: auto;
+}

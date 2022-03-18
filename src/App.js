@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
+import Results from "./components/Results/Results";
 import Errorpage from "./components/404/Errorpage";
 import classes from "./App.module.css";
 import { headerActions } from "./store/store";
@@ -23,7 +24,8 @@ const App = () => {
           <Header />
         </header>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/results" element={<Results />} />
           <Route path="*" element={<Errorpage />} />
         </Routes>
       </Router>
