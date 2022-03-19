@@ -3,10 +3,18 @@
   height: 5vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1.5fr 1fr;
-  background-color: transparent;
   z-index: 1;
   position: fixed;
   padding: 1%;
+}
+
+.header_container.dark {
+  background-color: rgb(15, 15, 15);
+  padding-bottom: 2%;
+}
+.header_container.light {
+  background-color: rgb(196, 211, 224);
+  padding-bottom: 2%;
 }
 
 .search {

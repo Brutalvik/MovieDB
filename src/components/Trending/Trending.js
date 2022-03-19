@@ -25,27 +25,6 @@ const Trending = () => {
       .then((data) => dispatch(movieActions.getTrendings(data.results)));
   }, [BASE_URL, API_KEY, dispatch, moviepage]);
 
-  //Trending TV
-  useEffect(() => {
-    fetch(
-      `${BASE_URL}trending/tv/day?${API_KEY}&language=en-US&page=${tvpage}&adult=false`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => dispatch(tvActions.getTrendings(data.results)));
-  }, [BASE_URL, API_KEY, dispatch, tvpage]);
-
-  //Get Selected Tv
-  useEffect(() => {
-    fetch(`${BASE_URL}tv/${tv.id}?${API_KEY}&language=en-US`)
-      .then((response, err) => {
-        if (err) throw err;
-        return response.json();
-      })
-      .then((data) => dispatch(tvActions.setSelectedtvShow(data)));
-  });
-
   return (
     <div>
       <TrendingMovies />

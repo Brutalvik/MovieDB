@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  clicked: false,
   searchValue: "",
   value: "",
   results: [],
@@ -10,12 +9,9 @@ const initialState = {
   selectedMovie: [],
 };
 const movieSlice = createSlice({
-  name: "headerReducer",
+  name: "movieReducer",
   initialState,
   reducers: {
-    toggle(state) {
-      state.clicked = !state.clicked;
-    },
     search(state, action) {
       state.value = action.payload;
     },

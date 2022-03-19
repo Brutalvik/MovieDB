@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  clicked: false,
   moviepage: 1,
   tvpage: 1,
   movie: true,
@@ -10,6 +11,9 @@ const logicSlice = createSlice({
   name: "logic",
   initialState,
   reducers: {
+    toggle(state) {
+      state.clicked = !state.clicked;
+    },
     incrementMovie(state) {
       if (state.moviepage <= 0 || state.moviepage >= 10) {
         state.moviepage = 1;

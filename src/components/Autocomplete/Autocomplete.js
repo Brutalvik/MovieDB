@@ -9,7 +9,7 @@ const Autocomplete = () => {
   const navigate = useNavigate();
   const suggestions = useSelector((state) => state.movieReducer.results);
   const query = useSelector((state) => state.movieReducer.value);
-  const clicked = useSelector((state) => state.movieReducer.clicked);
+  const clicked = useSelector((state) => state.logicReducer.clicked);
 
   const handleSearchQuery = (value) => {
     dispatch(movieActions.selectedSearch(value));

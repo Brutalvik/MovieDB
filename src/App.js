@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
-  const clicked = useSelector((state) => state.movieReducer.clicked);
+  const clicked = useSelector((state) => state.logicReducer.clicked);
   const handleClick = () => {
     dispatch(movieActions.search(""));
   };
