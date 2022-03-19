@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  page: 1,
   clicked: false,
-  moviepage: 1,
-  tvpage: 1,
-  movie: true,
+  player: true,
 };
 
 const logicSlice = createSlice({
@@ -14,36 +13,22 @@ const logicSlice = createSlice({
     toggle(state) {
       state.clicked = !state.clicked;
     },
-    incrementMovie(state) {
-      if (state.moviepage <= 0 || state.moviepage >= 10) {
-        state.moviepage = 1;
+    increment(state) {
+      if (state.page <= 0) {
+        state.page = 1;
       } else {
-        state.moviepage++;
+        state.page++;
       }
     },
-    decrementMovie(state) {
-      if (state.moviepage <= 1 || state.moviepage >= 10) {
-        state.moviepage = 1;
+    decrement(state) {
+      if (state.page <= 1) {
+        state.page = 1;
       } else {
-        state.moviepage--;
-      }
-    },
-    incrementTv(state) {
-      if (state.tvpage <= 0 || state.tvpage >= 10) {
-        state.tvpage = 1;
-      } else {
-        state.tvpage++;
-      }
-    },
-    decrementTv(state) {
-      if (state.tvpage <= 1 || state.tvpage >= 10) {
-        state.tvpage = 1;
-      } else {
-        state.tvpage--;
+        state.page--;
       }
     },
     setPlayer(state, action) {
-      state.movie = action.payload;
+      state.player = action.payload;
     },
   },
 });

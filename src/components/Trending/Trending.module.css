@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1%;
+}
+
+.header {
+  margin: 2%;
+  text-align: left;
+}
+
+.pages_header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: left;
+  margin-top: 1%;
+  margin-left: 65%;
+  width: 40%;
+}
+.element {
+  font-size: 1.7vw;
+  cursor: pointer;
+  color: grey;
+}
+
+.selected {
+  font-size: 1.7vw;
+  cursor: pointer;
+}
+
+.button_element {
+  margin-top: 15%;
+}

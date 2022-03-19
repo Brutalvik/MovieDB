@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+  moviepage: 1,
   searchValue: "",
   value: "",
   results: [],
