@@ -18,16 +18,28 @@
   width: 40%;
 }
 .element {
-  font-size: 1.7vw;
+  font-size: 1.5vw;
   cursor: pointer;
   color: grey;
 }
 
 .selected {
-  font-size: 1.7vw;
+  font-size: 1.5vw;
   cursor: pointer;
 }
 
 .button_element {
-  margin-top: 15%;
+  font-size: 2.5vw;
+}
+
+.button_element.dark {
+  background-color: rgb(226, 204, 0);
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

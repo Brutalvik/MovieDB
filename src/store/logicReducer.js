@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   page: 1,
+  loading: false,
   clicked: false,
   player: true,
 };
@@ -26,6 +27,12 @@ const logicSlice = createSlice({
       } else {
         state.page--;
       }
+    },
+    setPage(state, action) {
+      state.page = action.payload;
+    },
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
     setPlayer(state, action) {
       state.player = action.payload;

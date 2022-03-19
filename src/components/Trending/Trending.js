@@ -5,10 +5,12 @@ import { movieActions } from "../../store/movieReducer";
 import TrendingMovies from "../Movies/TrendingMovies";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { logicActions } from "../../store/logicReducer";
+import Spinner from "../../UI/Spinner/Spinner";
 
 const Trending = () => {
   const dispatch = useDispatch();
   const page = useSelector((state) => state.logicReducer.page);
+  const loading = useSelector((state) => state.logicReducer.loading);
   const clicked = useSelector((state) => state.logicReducer.clicked);
 
   const BASE_URL = process.env.REACT_APP_URL;
@@ -22,6 +24,14 @@ const Trending = () => {
     dispatch(logicActions.decrement());
   };
 
+  const setPage = (page) => {
+    if (page <= 0) {
+      dispatch(logicActions.setPage(1));
+    } else {
+      dispatch(logicActions.setPage(page));
+    }
+  };
+
   //Fetch Movies
   useEffect(() => {
     fetch(
@@ -30,7 +40,11 @@ const Trending = () => {
       .then((response) => {
         return response.json();
       })
-      .then((data) => dispatch(movieActions.getTrendings(data.results)));
+      .then((data) => {
+        dispatch(logicActions.setLoading(true));
+        dispatch(movieActions.getTrendings(data.results));
+        dispatch(logicActions.setLoading(false));
+      });
   }, [BASE_URL, API_KEY, dispatch, page]);
 
   return (
@@ -42,22 +56,36 @@ const Trending = () => {
         <div className={classes.pages_header}>
           <div className={classes.element}>
             <GrFormPrevious
-              className={classes.button_element}
+              className={`${classes.button_element} ${
+                clicked ? classes.dark : null
+              }`}
               onClick={handlePagePrev}
             />
           </div>
-          <div className={classes.element}>{page - 1}</div>
+          <div className={classes.element} onClick={() => setPage(page - 1)}>
+            {page - 1}
+          </div>
           <div className={classes.selected}>{page}</div>
-          <div className={classes.element}>{page + 1}</div>
+          <div className={classes.element} onClick={() => setPage(page + 1)}>
+            {page + 1}
+          </div>
           <div className={classes.element}>
             <GrFormNext
-              className={classes.button_element}
+              className={`${classes.button_element} ${
+                clicked ? classes.dark : null
+              }`}
               onClick={handlePageNext}
             />
           </div>
         </div>
       </div>
-      <TrendingMovies />
+      {loading ? (
+        <div className={classes.center}>
+          <Spinner />
+        </div>
+      ) : (
+        <TrendingMovies />
+      )}
     </>
   );
 };

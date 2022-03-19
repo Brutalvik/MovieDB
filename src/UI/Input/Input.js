@@ -2,7 +2,7 @@ import classes from "./Input.module.css";
 
 const Input = (props) => {
   return (
-    <input className={`${classes.movie_input} ${props.className}`} {...props} />
+    <input className={`${classes.text_input} ${props.className}`} {...props} />
   );
 };
 
