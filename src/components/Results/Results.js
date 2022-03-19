@@ -1,14 +1,24 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import classes from "./Results.module.css";
 import Genres from "../Genres/Genres";
 import Button from "../../UI/Button/Button";
+import { movieActions } from "../../store/movieReducer";
+import { useNavigate } from "react-router-dom";
 
 const Results = () => {
-  const search = useSelector((state) => state.headerReducer.searchValue);
-  const results = useSelector((state) => state.headerReducer.results);
-  const genres = useSelector((state) => state.headerReducer.genres);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const search = useSelector((state) => state.movieReducer.searchValue);
+  const results = useSelector((state) => state.movieReducer.results);
+  const genres = useSelector((state) => state.movieReducer.genres);
   const IMG_URL = process.env.REACT_APP_IMAGE_URL;
+
+  const handleSelection = (movie) => {
+    dispatch(movieActions.setSelectedMovie(movie));
+    console.log(movie);
+    navigate("/player");
+  };
 
   const displayGenres = genres.map((gen) => <li key={gen.id}>{gen.name}</li>);
 
@@ -47,7 +57,7 @@ const Results = () => {
               <Button text="Trailer" />
             </div>
             <div>
-              <Button text="Watch" />
+              <Button text="Watch" onClick={() => handleSelection(result)} />
             </div>
           </div>
         </div>

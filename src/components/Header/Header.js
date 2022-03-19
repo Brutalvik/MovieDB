@@ -5,12 +5,12 @@ import Searchbar from "../Searchbar/Searchbar";
 import Autocomplete from "../Autocomplete/Autocomplete";
 import Nav from "../Nav/Nav";
 import { useSelector, useDispatch } from "react-redux";
-import { headerActions } from "../../store/store";
+import { movieActions } from "../../store/movieReducer";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const query = useSelector((state) => state.headerReducer.value);
-  const search = useSelector((state) => state.headerReducer.value);
+  const query = useSelector((state) => state.movieReducer.value);
+  const search = useSelector((state) => state.movieReducer.value);
 
   const BASE_URL = process.env.REACT_APP_URL;
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -24,7 +24,7 @@ const Header = () => {
           return response.json();
         })
         .then((data) => {
-          dispatch(headerActions.results(data.results));
+          dispatch(movieActions.results(data.results));
         });
     }
   }, [BASE_URL, SEARCH_MOVIE_ENDPOINT, API_KEY, dispatch, query, FETCH_URL]);

@@ -1,19 +1,19 @@
 import React from "react";
 import classes from "./Autocomplete.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { headerActions } from "../../store/store";
+import { movieActions } from "../../store/movieReducer";
 import { useNavigate } from "react-router-dom";
 
 const Autocomplete = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const suggestions = useSelector((state) => state.headerReducer.results);
-  const query = useSelector((state) => state.headerReducer.value);
-  const clicked = useSelector((state) => state.headerReducer.clicked);
+  const suggestions = useSelector((state) => state.movieReducer.results);
+  const query = useSelector((state) => state.movieReducer.value);
+  const clicked = useSelector((state) => state.movieReducer.clicked);
 
   const handleSearchQuery = (value) => {
-    dispatch(headerActions.selectedSearch(value));
-    dispatch(headerActions.search(""));
+    dispatch(movieActions.selectedSearch(value));
+    dispatch(movieActions.search(""));
     navigate("/results");
   };
   const getSuggestions = query

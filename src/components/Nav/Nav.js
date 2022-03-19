@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Nav = () => {
   const menu = ["Movies", "TV", "Genres"];
-  const clicked = useSelector((state) => state.headerReducer.clicked);
+  const clicked = useSelector((state) => state.movieReducer.clicked);
   return (
     <ul className={classes.nav_container}>
       <Link

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { headerActions } from "../../store/store";
+import { movieActions } from "../../store/movieReducer";
 
 const Genres = (props) => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Genres = (props) => {
         genre.genres
           .filter((genre) => props.genre.includes(genre.id))
           .map((g) => genreArray.push(g));
-        dispatch(headerActions.getGenres(genreArray));
+        dispatch(movieActions.getGenres(genreArray));
       });
   }, [GENRE_URL, dispatch, props.genre]);
 

@@ -4,6 +4,65 @@
   margin-left: 35%;
   margin-top: -30%;
   width: 30%;
+  height: 185vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.more_back,
+.more_forward {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 15%;
+}
+
+.more_back {
+  margin-left: 0.5%;
+}
+
+.more_forward {
+  margin-left: 98%;
+}
+
+.arrow {
+  font-size: 2vw;
+}
+
+.more:active {
+  transform: scale(0.9);
+}
+
+.subheader {
+  margin-left: 5%;
+  margin-top: 1%;
+  position: fixed;
+}
+
+.poster {
+  width: 60%;
+  height: auto;
+  border: 1px solid black;
+}
+
+.overview {
+  display: none;
+}
+
+.poster:hover + .overview {
+  position: absolute;
+  display: block;
+  width: 20%;
+  height: 40%;
+  border: 1px solid black;
+  font-size: 4vw;
+}
+
+/* .scrolling_wrapper {
+  position: absolute;
+  transform: rotate(-90deg);
+  margin-left: 35%;
+  margin-top: -30%;
+  width: 30%;
   height: 190vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -12,4 +71,4 @@
 .poster {
   width: 60%;
   height: auto;
-}
+} */

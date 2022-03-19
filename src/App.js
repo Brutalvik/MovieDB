@@ -3,16 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Results from "./components/Results/Results";
+import Player from "./components/Player/Player";
 import Errorpage from "./components/404/Errorpage";
 import classes from "./App.module.css";
-import { headerActions } from "./store/store";
+import { movieActions } from "./store/movieReducer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const dispatch = useDispatch();
-  const clicked = useSelector((state) => state.headerReducer.clicked);
+  const clicked = useSelector((state) => state.movieReducer.clicked);
   const handleClick = () => {
-    dispatch(headerActions.search(""));
+    dispatch(movieActions.search(""));
   };
   return (
     <div
@@ -26,6 +27,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/player" element={<Player />} />
           <Route path="*" element={<Errorpage />} />
         </Routes>
       </Router>
