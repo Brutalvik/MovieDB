@@ -1,26 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  page: 1,
+  moviepage: 1,
+  tvpage: 1,
+  movie: true,
 };
 
 const logicSlice = createSlice({
   name: "logic",
   initialState,
   reducers: {
-    increment(state) {
-      if (state.page <= 0 || state.page >= 10) {
-        state.page = 1;
+    incrementMovie(state) {
+      if (state.moviepage <= 0 || state.moviepage >= 10) {
+        state.moviepage = 1;
       } else {
-        state.page++;
+        state.moviepage++;
       }
     },
-    decrement(state) {
-      if (state.page <= 1 || state.page >= 10) {
-        state.page = 1;
+    decrementMovie(state) {
+      if (state.moviepage <= 1 || state.moviepage >= 10) {
+        state.moviepage = 1;
       } else {
-        state.page--;
+        state.moviepage--;
       }
+    },
+    incrementTv(state) {
+      if (state.tvpage <= 0 || state.tvpage >= 10) {
+        state.tvpage = 1;
+      } else {
+        state.tvpage++;
+      }
+    },
+    decrementTv(state) {
+      if (state.tvpage <= 1 || state.tvpage >= 10) {
+        state.tvpage = 1;
+      } else {
+        state.tvpage--;
+      }
+    },
+    setPlayer(state, action) {
+      state.movie = action.payload;
     },
   },
 });

@@ -1,2 +1,9 @@
-.main_container {
+.header {
+  margin-top: 2%;
+  margin-left: 5%;
+}
+
+.trendingmovies {
+  margin: 5%;
+  margin-top: 0;
 }
