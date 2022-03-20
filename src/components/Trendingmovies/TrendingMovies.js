@@ -12,7 +12,6 @@ const TrendingMovies = () => {
   const movies = useSelector((state) => state.movieReducer.trending);
 
   const handleSelection = (movie) => {
-    console.log(movie);
     dispatch(movieActions.setSelectedMovie(movie));
     dispatch(logicActions.setPlayer(true));
     navigate("/player");

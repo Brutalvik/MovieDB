@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./Trending.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { movieActions } from "../../store/movieReducer";
 import TrendingMovies from "../Trendingmovies/TrendingMovies";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { logicActions } from "../../store/logicReducer";
@@ -12,9 +11,6 @@ const Trending = () => {
   const page = useSelector((state) => state.logicReducer.page);
   const loading = useSelector((state) => state.logicReducer.loading);
   const clicked = useSelector((state) => state.logicReducer.clicked);
-
-  const BASE_URL = process.env.REACT_APP_URL;
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   const handlePageNext = () => {
     dispatch(logicActions.increment());
@@ -31,21 +27,6 @@ const Trending = () => {
       dispatch(logicActions.setPage(page));
     }
   };
-
-  //Fetch Movies
-  useEffect(() => {
-    fetch(
-      `${BASE_URL}trending/movie/day?${API_KEY}&language=en-US&page=${page}`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        dispatch(logicActions.setLoading(true));
-        dispatch(movieActions.getTrendings(data.results));
-        dispatch(logicActions.setLoading(false));
-      });
-  }, [BASE_URL, API_KEY, dispatch, page]);
 
   return (
     <>

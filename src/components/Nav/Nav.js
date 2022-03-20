@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { logicActions } from "../../store/logicReducer";
 
 const Nav = () => {
-  const menu = ["Movies", "TV", "Genres"];
   const dispatch = useDispatch();
   const clicked = useSelector((state) => state.logicReducer.clicked);
 
@@ -21,20 +20,17 @@ const Nav = () => {
         }`}
         to={"/"}
       >
-        <li>Home</li>
+        <li>Movies</li>
       </Link>
-      {menu.map((menuItem, index) => (
-        <Link
-          className={`${classes.nav_links} ${
-            !clicked ? classes.light : classes.dark
-          }`}
-          key={index}
-          to={`/${menuItem}`}
-          onClick={handleClick}
-        >
-          <li>{menuItem}</li>
-        </Link>
-      ))}
+      <Link
+        className={`${classes.nav_links} ${
+          !clicked ? classes.light : classes.dark
+        }`}
+        to={`/tv`}
+        onClick={handleClick}
+      >
+        <li>TV</li>
+      </Link>
     </ul>
   );
 };
