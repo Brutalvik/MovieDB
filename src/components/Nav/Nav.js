@@ -12,6 +12,14 @@ const Nav = () => {
     dispatch(logicActions.setPage(1));
   };
 
+  const dropdown = (
+    <div class={`${classes.dropdown} ${clicked ? classes.dark : null}`}>
+      <p>Trending</p>
+      <p>Latest</p>
+      <p>Popular</p>
+    </div>
+  );
+
   return (
     <ul className={classes.nav_container}>
       <Link
@@ -19,15 +27,16 @@ const Nav = () => {
           !clicked ? classes.light : classes.dark
         }`}
         to={"/"}
+        onClick={handleClick}
       >
         <li>Movies</li>
+        {dropdown}
       </Link>
       <Link
         className={`${classes.nav_links} ${
           !clicked ? classes.light : classes.dark
         }`}
         to={`/tv`}
-        onClick={handleClick}
       >
         <li>TV</li>
       </Link>

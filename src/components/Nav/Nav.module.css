@@ -29,3 +29,28 @@
 .nav_container li:active {
   zoom: 90%;
 }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: rgb(196, 211, 224);
+  width: auto;
+  padding: 10px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  margin-left: 1%;
+  z-index: 1;
+}
+
+.dark {
+  background-color: rgb(15, 15, 15);
+}
+
+.dropdown p {
+  display: block;
+  font-size: 1.5vw;
+  font-weight: bold;
+}
+
+.nav_links:hover .dropdown {
+  display: block;
+}
