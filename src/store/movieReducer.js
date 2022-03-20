@@ -8,6 +8,7 @@ const initialState = {
   genres: [],
   trending: [],
   selectedMovie: [],
+  banner: [],
 };
 const movieSlice = createSlice({
   name: "movieReducer",
@@ -30,6 +31,9 @@ const movieSlice = createSlice({
     },
     getTrendings(state, action) {
       state.trending = action.payload;
+    },
+    setBanner(state, action) {
+      state.banner = action.payload;
     },
   },
 });

@@ -7,6 +7,7 @@ import Nav from "../Nav/Nav";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { movieActions } from "../../store/movieReducer";
+import { logicActions } from "../../store/logicReducer";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const Header = () => {
   const FETCH_URL = `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 
   const handleClick = () => {
+    dispatch(logicActions.setPage(1));
     navigate("/");
   };
 

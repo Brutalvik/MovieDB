@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import classes from "./Trending.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { movieActions } from "../../store/movieReducer";
-import TrendingMovies from "../Movies/TrendingMovies";
+import TrendingMovies from "../Trendingmovies/TrendingMovies";
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { logicActions } from "../../store/logicReducer";
 import Spinner from "../../UI/Spinner/Spinner";
