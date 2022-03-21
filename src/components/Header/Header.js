@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import classes from "./Header.module.css";
+import navclasses from "../Nav/Nav.module.css";
 import Toggle from "../../UI/Toggle/Toggle";
 import Searchbar from "../Searchbar/Searchbar";
 import Autocomplete from "../Autocomplete/Autocomplete";
 import Nav from "../Nav/Nav";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { movieActions } from "../../store/movieReducer";
@@ -54,6 +56,16 @@ const Header = () => {
         <Searchbar />
         {search ? <Autocomplete /> : null}
       </div>
+      <ul className={`${navclasses.nav_container} ${classes.login}`}>
+        <Link
+          className={`${navclasses.nav_links} ${
+            !clicked ? navclasses.light : navclasses.dark
+          }`}
+          to={`/login`}
+        >
+          <li>Login</li>
+        </Link>
+      </ul>
       <div>
         <Toggle />
       </div>

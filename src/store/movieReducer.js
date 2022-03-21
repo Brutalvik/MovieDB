@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logicActions } from "./logicReducer";
 
 const initialState = {
   moviepage: 1,

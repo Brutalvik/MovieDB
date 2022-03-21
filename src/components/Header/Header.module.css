@@ -2,7 +2,7 @@
   width: 100%;
   height: 5vh;
   display: grid;
-  grid-template-columns: 1fr 2fr 1.5fr 1fr;
+  grid-template-columns: 1fr 2fr 1.5fr 0.5fr 1fr;
   z-index: 1;
   position: fixed;
   padding: 1%;
@@ -32,4 +32,9 @@
 
 .logo h1:active {
   zoom: 90%;
+}
+
+.login {
+  padding-top: 5%;
+  text-align: right;
 }
