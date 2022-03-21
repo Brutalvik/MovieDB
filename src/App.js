@@ -7,7 +7,7 @@ import Player from "./components/Player/Player";
 import Errorpage from "./components/404/Errorpage";
 import classes from "./App.module.css";
 import { movieActions } from "./store/movieReducer";
-import { logicActions } from "./store/logicReducer";
+import { fetchMovies } from "./store/movieReducer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -22,19 +22,9 @@ const App = () => {
   const BASE_URL = process.env.REACT_APP_URL;
   const API_KEY = process.env.REACT_APP_API_KEY;
 
-  //Fetch Movies
+  //Fetch Movies using thunk
   React.useEffect(() => {
-    fetch(
-      `${BASE_URL}trending/movie/day?${API_KEY}&language=en-US&page=${page}`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        dispatch(logicActions.setLoading(true));
-        dispatch(movieActions.getTrendings(data.results));
-        dispatch(logicActions.setLoading(false));
-      });
+    dispatch(fetchMovies(page));
   }, [BASE_URL, API_KEY, dispatch, page]);
 
   return (

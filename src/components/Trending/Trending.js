@@ -11,6 +11,7 @@ const Trending = () => {
   const page = useSelector((state) => state.logicReducer.page);
   const loading = useSelector((state) => state.logicReducer.loading);
   const clicked = useSelector((state) => state.logicReducer.clicked);
+  const error = useSelector((state) => state.movieReducer.error);
 
   const handlePageNext = () => {
     dispatch(logicActions.increment());
@@ -64,8 +65,10 @@ const Trending = () => {
         <div className={classes.center}>
           <Spinner />
         </div>
-      ) : (
+      ) : error ? (
         <TrendingMovies />
+      ) : (
+        <h1>{error.message}</h1>
       )}
     </>
   );
