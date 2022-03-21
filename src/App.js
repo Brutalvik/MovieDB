@@ -7,7 +7,7 @@ import Player from "./components/Player/Player";
 import Errorpage from "./components/404/Errorpage";
 import classes from "./App.module.css";
 import { movieActions } from "./store/movieReducer";
-import { fetchMovies } from "./store/movieReducer";
+import { fetchMovies } from "./store/movieActions";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
