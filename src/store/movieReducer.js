@@ -72,7 +72,11 @@ export const fetchMovies = (page) => {
         console.log("Function running from thunk");
       });
     } catch (error) {
-      throw new Error("Error");
+      throw new Error(
+        dispatch(
+          movieActions.setError({ status: true, message: error.message })
+        )
+      );
     }
   };
 };
