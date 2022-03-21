@@ -4,7 +4,10 @@ import Header from "./components/Header/Header";
 import Movies from "./components/Movies/Movies";
 import Results from "./components/Results/Results";
 import Player from "./components/Player/Player";
-import Errorpage from "./components/404/Errorpage";
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+// import Errorpage from "./components/404/Errorpage";
+import ModalOverlay from "./UI/Modal/ModalOverlay";
 import classes from "./App.module.css";
 import { movieActions } from "./store/movieReducer";
 import { fetchMovies } from "./store/movieActions";
@@ -13,11 +16,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 const App = () => {
   const dispatch = useDispatch();
   const clicked = useSelector((state) => state.logicReducer.clicked);
+  const page = useSelector((state) => state.logicReducer.page);
+  const modal = useSelector((state) => state.logicReducer.modal);
   const handleClick = () => {
     dispatch(movieActions.search(""));
   };
-
-  const page = useSelector((state) => state.logicReducer.page);
 
   const BASE_URL = process.env.REACT_APP_URL;
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -38,9 +41,12 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<Movies />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/results" element={<Results />} />
           <Route path="/player" element={<Player />} />
-          <Route path="*" element={<Errorpage />} />
+          {/* {modal ? <Route path="/login" element={<ModalOverlay />} /> : null} */}
+          {/* <Route path="/*" element={<Errorpage />} /> */}
         </Routes>
       </Router>
     </div>

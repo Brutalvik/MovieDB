@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   clicked: false,
   player: true,
+  modal: false,
 };
 
 const logicSlice = createSlice({
@@ -36,6 +37,9 @@ const logicSlice = createSlice({
     },
     setPlayer(state, action) {
       state.player = action.payload;
+    },
+    setModal(state) {
+      state.modal = !state.modal;
     },
   },
 });
