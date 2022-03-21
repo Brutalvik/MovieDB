@@ -65,6 +65,14 @@ const Header = () => {
         >
           <li>Login</li>
         </Link>
+        <Link
+          className={`${navclasses.nav_links} ${
+            !clicked ? navclasses.light : navclasses.dark
+          }`}
+          to={`/signup`}
+        >
+          <li>Signup</li>
+        </Link>
       </ul>
       <div>
         <Toggle />

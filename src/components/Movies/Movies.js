@@ -4,7 +4,6 @@ import Trending from "../Trending/Trending";
 import { useSelector } from "react-redux";
 const Movies = () => {
   const error = useSelector((state) => state.movieReducer.error);
-  console.log(error);
 
   const ErrorMessage = (
     <div>

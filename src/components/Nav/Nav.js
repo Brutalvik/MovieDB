@@ -30,7 +30,7 @@ const Nav = () => {
         onClick={handleClick}
       >
         <li>Movies</li>
-        {dropdown}
+        {/* {dropdown} */}
       </Link>
       <Link
         className={`${classes.nav_links} ${

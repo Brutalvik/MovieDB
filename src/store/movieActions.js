@@ -21,7 +21,8 @@ export const fetchMovies = (page) => {
         );
         console.log(response);
       }
-      return await response.json();
+      const data = await response.json();
+      return data;
     };
     try {
       await sendRequest().then((data) => {

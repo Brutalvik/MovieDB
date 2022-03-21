@@ -22,12 +22,12 @@ const Results = () => {
 
   const displayGenres = genres.map((gen) => <li key={gen.id}>{gen.name}</li>);
 
-  const displayPoster = results.map((result) => {
+  const displayPoster = results.map((result, index) => {
     if (result.id === search) {
       return (
         <>
           <img
-            key={result.id}
+            key={index}
             src={IMG_URL + result.poster_path}
             alt="Movie Poster"
           />

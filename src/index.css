@@ -16,7 +16,7 @@ code {
 }
 
 ::-webkit-scrollbar {
-  background: auto; /* scrollbar invisible */
+  background: none; /* scrollbar invisible */
 }
 
 li {
