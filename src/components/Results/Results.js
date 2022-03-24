@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import classes from "./Results.module.css";
 import Genres from "../Genres/Genres";
 import Button from "../../UI/Button/Button";
-import { movieActions } from "../../store/movieReducer";
+import { showActions } from "../../store/showReducer";
 import { useNavigate } from "react-router-dom";
 
 const Results = () => {
@@ -13,8 +13,8 @@ const Results = () => {
   const genres = useSelector((state) => state.movieReducer.genres);
   const IMG_URL = process.env.REACT_APP_IMAGE_URL;
 
-  const handleSelection = (movie) => {
-    dispatch(movieActions.setSelectedMovie(movie));
+  const handleSelection = (show) => {
+    dispatch(showActions.setPlaySelectedShow(show));
     navigate("/player");
   };
 

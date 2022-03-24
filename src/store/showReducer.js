@@ -4,6 +4,7 @@ const initialState = {
   results: [],
   search: "",
   selectedShow: [],
+  playSelectedShow: [],
 };
 
 const showSlice = createSlice({
@@ -18,6 +19,9 @@ const showSlice = createSlice({
     },
     setSelectedShow(state, action) {
       state.selectedShow = action.payload;
+    },
+    setPlaySelectedShow(state, action) {
+      state.playSelectedShow = action.payload;
     },
   },
 });
