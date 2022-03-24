@@ -4,6 +4,7 @@ import tvSlice from "./tvReducer";
 import logicSlice from "./logicReducer";
 import loginSlice from "./loginReducer";
 import signupSlice from "./signupReducer";
+
 const store = configureStore({
   reducer: {
     movieReducer: movieSlice.reducer,

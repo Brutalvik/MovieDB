@@ -1,0 +1,18 @@
+.element {
+  font-size: 1.5vw;
+  cursor: pointer;
+  color: grey;
+}
+
+.selected {
+  font-size: 1.5vw;
+  cursor: pointer;
+}
+
+.button_element {
+  font-size: 2.5vw;
+}
+
+.button_element.dark {
+  background-color: rgb(226, 204, 0);
+}

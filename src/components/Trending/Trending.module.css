@@ -13,34 +13,16 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   text-align: left;
-  margin-top: 1%;
-  margin-left: 65%;
-  width: 40%;
+  margin-top: -5%;
+  margin-left: 70%;
+  width: 30%;
   user-select: none;
-}
-.element {
-  font-size: 1.5vw;
-  cursor: pointer;
-  color: grey;
-}
-
-.selected {
-  font-size: 1.5vw;
-  cursor: pointer;
-}
-
-.button_element {
-  font-size: 2.5vw;
-}
-
-.button_element.dark {
-  background-color: rgb(226, 204, 0);
 }
 
 .center {
   position: absolute;
   left: 50%;
-  top: 50%;
+  margin-top: 20%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }

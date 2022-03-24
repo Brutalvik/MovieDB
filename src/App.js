@@ -7,7 +7,8 @@ import Player from "./components/Player/Player";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
 // import Errorpage from "./components/404/Errorpage";
-import ModalOverlay from "./UI/Modal/ModalOverlay";
+// import ModalOverlay from "./UI/Modal/ModalOverlay";
+import TV from "./components/TV/Tv";
 import classes from "./App.module.css";
 import { movieActions } from "./store/movieReducer";
 import { fetchMovies } from "./store/movieActions";
@@ -17,7 +18,7 @@ const App = () => {
   const dispatch = useDispatch();
   const clicked = useSelector((state) => state.logicReducer.clicked);
   const page = useSelector((state) => state.logicReducer.page);
-  const modal = useSelector((state) => state.logicReducer.modal);
+  // const modal = useSelector((state) => state.logicReducer.modal);
   const handleClick = () => {
     dispatch(movieActions.search(""));
   };
@@ -41,10 +42,11 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<Movies />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/tv" element={<TV />} />
           <Route path="/results" element={<Results />} />
           <Route path="/player" element={<Player />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           {/* {modal ? <Route path="/login" element={<ModalOverlay />} /> : null} */}
           {/* <Route path="/*" element={<Errorpage />} /> */}
         </Routes>

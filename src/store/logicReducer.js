@@ -4,7 +4,7 @@ const initialState = {
   page: 1,
   loading: false,
   clicked: false,
-  player: true,
+  tv: false,
   modal: false,
 };
 
@@ -35,8 +35,8 @@ const logicSlice = createSlice({
     setLoading(state, action) {
       state.loading = action.payload;
     },
-    setPlayer(state, action) {
-      state.player = action.payload;
+    setTV(state, action) {
+      state.tv = action.payload;
     },
     setModal(state) {
       state.modal = !state.modal;

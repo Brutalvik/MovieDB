@@ -37,6 +37,7 @@ const Nav = () => {
           !clicked ? classes.light : classes.dark
         }`}
         to={`/tv`}
+        onClick={handleClick}
       >
         <li>TV</li>
       </Link>

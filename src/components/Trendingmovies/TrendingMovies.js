@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./TrendingMovies.module.css";
 import { movieActions } from "../../store/movieReducer";
-import { logicActions } from "../../store/logicReducer";
 import { useNavigate } from "react-router-dom";
 
 const TrendingMovies = () => {
@@ -13,7 +12,6 @@ const TrendingMovies = () => {
 
   const handleSelection = (movie) => {
     dispatch(movieActions.setSelectedMovie(movie));
-    dispatch(logicActions.setPlayer(true));
     navigate("/player");
   };
 

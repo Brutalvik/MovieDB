@@ -1,16 +1,33 @@
 import React from "react";
+import classes from "./Tv.module.css";
+import Trendingtv from "../Trendingtv/Trendingtv";
+import Spinner from "../../UI/Spinner/Spinner";
+import Pages from "../Pages/Pages";
+import { useSelector } from "react-redux";
 
 const Tv = () => {
+  const loading = useSelector((state) => state.logicReducer.loading);
+
   return (
-    <div>
-      <iframe
-        id="iframe"
-        src="https://www.2embed.ru/embed/tmdb/tv?id=71728&s=5&e=16"
-        width="100%"
-        height="100%"
-        frameborder="0"
-        title="tv"
-      ></iframe>
+    <div className={classes.container}>
+      <div className={classes.header}>
+        <h1>Trending TV</h1>
+      </div>
+
+      <div>
+        {loading ? (
+          <div className={classes.center}>
+            <Spinner />
+          </div>
+        ) : (
+          <>
+            <div className={classes.pages_header}>
+              <Pages />
+            </div>
+            <Trendingtv />
+          </>
+        )}
+      </div>
     </div>
   );
 };

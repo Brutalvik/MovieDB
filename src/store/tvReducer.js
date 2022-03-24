@@ -1,27 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  trending: [],
-  selectedTv: [],
-  selectedtvShow: [],
-  show: [],
+  trendingTv: [],
+  selectedTV: [],
 };
 
 const tvSlice = createSlice({
   name: "tv",
   initialState,
   reducers: {
-    getTrendings(state, action) {
-      state.trending = action.payload;
+    setTrendingTv(state, action) {
+      state.trendingTv = action.payload;
     },
-    setSelectedTv(state, action) {
-      state.selectedTv = action.payload;
-    },
-    setSelectedtvShow(state, action) {
-      state.selectedtvShow = action.payload;
-    },
-    setShow(state, action) {
-      state.show = action.payload;
+    setSelectedTV(state, action) {
+      state.selectedTV = action.payload;
     },
   },
 });

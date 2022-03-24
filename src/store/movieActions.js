@@ -29,7 +29,6 @@ export const fetchMovies = (page) => {
         dispatch(logicActions.setLoading(true));
         dispatch(movieActions.getTrendings(data.results));
         dispatch(logicActions.setLoading(false));
-        console.log("Function running from thunk");
       });
     } catch (error) {
       throw new Error(

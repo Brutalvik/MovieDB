@@ -3,8 +3,22 @@ import classes from "./Login.module.css";
 import Input from "../../UI/Input/Input";
 import Button from "../../UI/Button/Button";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const [user, setUser] = React.useState({});
+  const [isValidEmail, setisValidEmail] = React.useState(false);
+  const [isValidPassword, setisValidPassword] = React.useState(false);
+  const [disabled, setDisabled] = React.useState(true);
+  const reguser = useSelector((state) => console.log(state.signupReducer.user));
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setUser({ ...user, [event.target.name]: event.target.value });
+    user.email.includes("@");
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     console.log("Login");
@@ -16,10 +30,22 @@ const Login = () => {
       </div>
       <form onSubmit={handleLogin}>
         <div className={classes.input}>
-          <Input placeholder="Email" type="email" />
+          <Input
+            placeholder="Email"
+            type="email"
+            name="email"
+            value={user.email || ""}
+            onChange={handleChange}
+          />
         </div>
         <div className={classes.input}>
-          <Input placeholder="Password" type="password" />
+          <Input
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={user.password || ""}
+            onChange={handleChange}
+          />
         </div>
         <div className={classes.footer}>
           <div className={classes.left}>
