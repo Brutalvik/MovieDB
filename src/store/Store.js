@@ -4,6 +4,7 @@ import tvSlice from "./tvReducer";
 import logicSlice from "./logicReducer";
 import loginSlice from "./loginReducer";
 import signupSlice from "./signupReducer";
+import showSlice from "./showReducer";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     tvReducer: tvSlice.reducer,
     signupReducer: signupSlice.reducer,
     loginReducer: loginSlice.reducer,
+    showReducer: showSlice.reducer,
   },
 });
 

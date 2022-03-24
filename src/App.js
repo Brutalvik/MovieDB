@@ -10,7 +10,7 @@ import Signup from "./components/Signup/Signup";
 // import ModalOverlay from "./UI/Modal/ModalOverlay";
 import TV from "./components/TV/Tv";
 import classes from "./App.module.css";
-import { movieActions } from "./store/movieReducer";
+import { showActions } from "./store/showReducer";
 import { fetchMovies } from "./store/movieActions";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -20,16 +20,13 @@ const App = () => {
   const page = useSelector((state) => state.logicReducer.page);
   // const modal = useSelector((state) => state.logicReducer.modal);
   const handleClick = () => {
-    dispatch(movieActions.search(""));
+    dispatch(showActions.setSearch(""));
   };
-
-  const BASE_URL = process.env.REACT_APP_URL;
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   //Fetch Movies using thunk
   React.useEffect(() => {
     dispatch(fetchMovies(page));
-  }, [BASE_URL, API_KEY, dispatch, page]);
+  }, [dispatch, page]);
 
   return (
     <div

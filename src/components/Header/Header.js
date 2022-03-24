@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import classes from "./Header.module.css";
 import navclasses from "../Nav/Nav.module.css";
 import Toggle from "../../UI/Toggle/Toggle";
@@ -8,37 +8,26 @@ import Nav from "../Nav/Nav";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { movieActions } from "../../store/movieReducer";
+import { getSearchResults } from "../../store/showAction";
 import { logicActions } from "../../store/logicReducer";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const query = useSelector((state) => state.movieReducer.value);
-  const search = useSelector((state) => state.movieReducer.value);
+  const query = useSelector((state) => state.showReducer.search);
+  const search = useSelector((state) => state.showReducer.search);
   const clicked = useSelector((state) => state.logicReducer.clicked);
-
-  const BASE_URL = process.env.REACT_APP_URL;
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const SEARCH_MOVIE_ENDPOINT = process.env.REACT_APP_MOVIE_ENDPOINT;
-  const FETCH_URL = `${BASE_URL}${SEARCH_MOVIE_ENDPOINT}${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
 
   const handleClick = () => {
     dispatch(logicActions.setPage(1));
     navigate("/");
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (query) {
-      fetch(FETCH_URL)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          dispatch(movieActions.results(data.results));
-        });
+      dispatch(getSearchResults(query));
     }
-  }, [BASE_URL, SEARCH_MOVIE_ENDPOINT, API_KEY, dispatch, query, FETCH_URL]);
+  }, [query, dispatch]);
 
   return (
     <div

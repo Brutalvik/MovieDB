@@ -1,32 +1,34 @@
 import React from "react";
 import classes from "./Autocomplete.module.css";
 import { useSelector, useDispatch } from "react-redux";
-import { movieActions } from "../../store/movieReducer";
 import { useNavigate } from "react-router-dom";
+import { showActions } from "../../store/showReducer";
 
 const Autocomplete = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const suggestions = useSelector((state) => state.movieReducer.results);
-  const query = useSelector((state) => state.movieReducer.value);
+  const suggestions = useSelector((state) => state.showReducer.results);
+  const query = useSelector((state) => state.showReducer.search);
   const clicked = useSelector((state) => state.logicReducer.clicked);
 
-  const handleSearchQuery = (value) => {
-    dispatch(movieActions.selectedSearch(value));
-    dispatch(movieActions.search(""));
+  const handleSearchQuery = (selected) => {
+    dispatch(showActions.setSelectedShow(selected));
+    dispatch(showActions.setSearch(""));
     navigate("/results");
   };
   const getSuggestions = query
-    ? suggestions.map((suggestion) => {
+    ? suggestions?.map((suggestion) => {
         return (
           <p
             className={`${classes.suggestions} ${
               clicked ? classes.dark : classes.light
             }`}
             key={suggestion.id}
-            onClick={() => handleSearchQuery(suggestion.id)}
+            onClick={() => handleSearchQuery(suggestion)}
           >
-            {suggestion.original_title}
+            {suggestion.media_type === "tv"
+              ? suggestion.name
+              : suggestion.original_title}
           </p>
         );
       })

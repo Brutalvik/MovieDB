@@ -9,67 +9,57 @@ import { useNavigate } from "react-router-dom";
 const Results = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const search = useSelector((state) => state.movieReducer.searchValue);
-  const results = useSelector((state) => state.movieReducer.results);
+  const selected = useSelector((state) => state.showReducer.selectedShow);
   const genres = useSelector((state) => state.movieReducer.genres);
   const IMG_URL = process.env.REACT_APP_IMAGE_URL;
 
   const handleSelection = (movie) => {
     dispatch(movieActions.setSelectedMovie(movie));
-    console.log(movie);
     navigate("/player");
   };
 
   const displayGenres = genres.map((gen) => <li key={gen.id}>{gen.name}</li>);
 
-  const displayPoster = results.map((result, index) => {
-    if (result.id === search) {
-      return (
-        <>
-          <img
-            key={index}
-            src={IMG_URL + result.poster_path}
-            alt="Movie Poster"
-          />
-        </>
-      );
-    }
-    return null;
-  });
-
-  const displayInfo = results.map((result) => {
-    if (result.id === search) {
-      return (
-        <div className={classes.info}>
-          <h1>{result.original_title}</h1>
-          <div className={classes.left_info}>
-            <h5>Language: {result.original_language.toUpperCase()}</h5>
-            <h5>Ratings: {result.vote_average}</h5>
-            <Genres genre={result.genre_ids} />
-            <ul className={classes.genres}>Genre: {displayGenres}</ul>
-          </div>
-          <div className={classes.overview}>
-            <h4>Plot</h4>
-            <p>{result.overview}</p>
-          </div>
-          <div className={classes.footer}>
-            <div>
-              <Button text="Trailer" />
-            </div>
-            <div>
-              <Button text="Watch" onClick={() => handleSelection(result)} />
-            </div>
-          </div>
-        </div>
-      );
-    }
-    return null;
-  });
-
   return (
     <div className={classes.container}>
-      <div>{displayPoster}</div>
-      <div>{displayInfo}</div>
+      <div>
+        <img
+          src={`${
+            selected.poster_path === null ? "" : IMG_URL + selected.poster_path
+          }`}
+          alt="Movie Poster"
+        />
+      </div>
+      <div className={classes.info}>
+        <h1>{selected.original_title}</h1>
+        <div className={classes.left_info}>
+          <h5>
+            Language:{" "}
+            {selected.original_language &&
+              selected.original_language.toUpperCase()}
+          </h5>
+          <h5>Ratings: {selected.vote_average}</h5>
+          <h5>
+            Released:{" "}
+            {(selected.release_date && selected.release_date.substr(0, 4)) ||
+              (selected.first_air_date && selected.first_air_date.substr(0, 4))}
+          </h5>
+          <Genres genre={selected.genre_ids} />
+          <ul className={classes.genres}>Genre: {displayGenres}</ul>
+        </div>
+        <div className={classes.overview}>
+          <h4>Plot</h4>
+          <p>{selected.overview}</p>
+        </div>
+        <div className={classes.footer}>
+          <div>
+            <Button text="Trailer" />
+          </div>
+          <div>
+            <Button text="Watch" onClick={() => handleSelection(selected)} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

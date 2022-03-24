@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  moviepage: 1,
-  searchValue: "",
-  value: "",
-  results: [],
   genres: [],
   trending: [],
   selectedMovie: [],
@@ -17,15 +13,6 @@ const movieSlice = createSlice({
   reducers: {
     setError(state, action) {
       state.error = action.payload;
-    },
-    search(state, action) {
-      state.value = action.payload;
-    },
-    results(state, action) {
-      state.results = action.payload;
-    },
-    selectedSearch(state, action) {
-      state.searchValue = action.payload;
     },
     setSelectedMovie(state, action) {
       state.selectedMovie = action.payload;

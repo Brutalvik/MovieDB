@@ -1,16 +1,16 @@
 import React from "react";
 import Input from "../../UI/Input/Input";
 import { useDispatch, useSelector } from "react-redux";
-import { movieActions } from "../../store/movieReducer";
+import { showActions } from "../../store/showReducer";
 
 const Searchbar = () => {
   const dispatch = useDispatch();
-
-  const query = useSelector((state) => state.movieReducer.value);
+  const query = useSelector((state) => state.showReducer.search);
 
   const handleSearchQuery = (event) => {
-    dispatch(movieActions.search(event.target.value));
+    dispatch(showActions.setSearch(event.target.value));
   };
+
   return (
     <>
       <Input
