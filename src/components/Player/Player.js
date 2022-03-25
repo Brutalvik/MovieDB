@@ -1,13 +1,11 @@
 import React from "react";
 import classes from "./Player.module.css";
 import { useSelector } from "react-redux";
+import Movieplayer from "./Movieplayer";
+import Tvplayer from "./Tvplayer";
 
 const Player = () => {
   const show = useSelector((state) => state.showReducer.playSelectedShow);
-  const player = useSelector((state) => console.log(state.logicReducer.movie));
-
-  const MOVIE_END_POINT = process.env.REACT_APP_MOVIE_FRAME + show.id;
-  window.alias_open = window.open;
 
   const moviePlayer = (
     <div className={classes.wrapper}>
@@ -16,22 +14,11 @@ const Player = () => {
           <h1>{show.original_title}</h1>
         </div>
       </div>
-      <div className={classes.player_container}>
-        {show.media_type === "movie" ? (
-          <iframe
-            src={`${MOVIE_END_POINT}`}
-            title="movie frame"
-            allow="fullscreen"
-            className={classes.player}
-          ></iframe>
-        ) : (
-          <h1>Under Construction</h1>
-        )}
-      </div>
+      {show.media_type === "movie" ? <Movieplayer /> : <Tvplayer />}
     </div>
   );
 
-  return <>{!player ? moviePlayer : null}</>;
+  return <>{moviePlayer}</>;
 };
 
 export default Player;

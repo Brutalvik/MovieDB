@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   trendingTv: [],
   selectedTV: [],
+  show: [],
 };
 
 const tvSlice = createSlice({
@@ -14,6 +15,9 @@ const tvSlice = createSlice({
     },
     setSelectedTV(state, action) {
       state.selectedTV = action.payload;
+    },
+    setShow(state, action) {
+      state.show = action.payload;
     },
   },
 });

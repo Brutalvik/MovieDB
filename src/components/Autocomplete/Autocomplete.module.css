@@ -1,7 +1,7 @@
 .autocomplete {
   position: fixed;
   z-index: 1;
-  margin-left: 4%;
+  margin-left: 1%;
   width: auto;
   height: 50%;
   overflow-x: scroll;

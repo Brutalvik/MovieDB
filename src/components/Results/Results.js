@@ -5,6 +5,7 @@ import Genres from "../Genres/Genres";
 import Button from "../../UI/Button/Button";
 import { showActions } from "../../store/showReducer";
 import { useNavigate } from "react-router-dom";
+import { getTvShow } from "../../store/tvActions";
 
 const Results = () => {
   const dispatch = useDispatch();
@@ -14,8 +15,13 @@ const Results = () => {
   const IMG_URL = process.env.REACT_APP_IMAGE_URL;
 
   const handleSelection = (show) => {
-    dispatch(showActions.setPlaySelectedShow(show));
-    navigate("/player");
+    if (show.media_type === "movie") {
+      dispatch(showActions.setPlaySelectedShow(show));
+      navigate("/player");
+    } else {
+      dispatch(getTvShow(show.id));
+      console.log(`sent show id from results : ${show.id}`);
+    }
   };
 
   const displayGenres = genres.map((gen) => <li key={gen.id}>{gen.name}</li>);
@@ -27,7 +33,7 @@ const Results = () => {
           src={`${
             selected.poster_path === null ? "" : IMG_URL + selected.poster_path
           }`}
-          alt="Movie Poster"
+          alt="Poster"
         />
       </div>
       <div className={classes.info}>
