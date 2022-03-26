@@ -10,18 +10,26 @@ const Pages = () => {
   const page = useSelector((state) => state.logicReducer.page);
 
   const handlePageNext = () => {
+    dispatch(logicActions.setLoading(true));
     dispatch(logicActions.increment());
+    dispatch(logicActions.setLoading(false));
   };
 
   const handlePagePrev = () => {
+    dispatch(logicActions.setLoading(true));
     dispatch(logicActions.decrement());
+    dispatch(logicActions.setLoading(false));
   };
 
   const setPage = (page) => {
     if (page <= 0) {
+      dispatch(logicActions.setLoading(true));
       dispatch(logicActions.setPage(1));
+      dispatch(logicActions.setLoading(false));
     } else {
+      dispatch(logicActions.setLoading(true));
       dispatch(logicActions.setPage(page));
+      dispatch(logicActions.setLoading(false));
     }
   };
 

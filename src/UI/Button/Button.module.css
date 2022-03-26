@@ -52,3 +52,10 @@
 .btn_dark:hover {
   color: black;
 }
+
+@media (max-width: 768px) {
+  .btn_light,
+  .btn_dark {
+    font-size: 3vw;
+  }
+}

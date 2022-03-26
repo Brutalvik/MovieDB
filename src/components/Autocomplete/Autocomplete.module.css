@@ -24,3 +24,16 @@
   cursor: pointer;
   padding: 2%;
 }
+
+@media (max-width: 768px) {
+  .autocomplete {
+    width: auto;
+    height: 40%;
+    margin-left: 4%;
+  }
+
+  .suggestions {
+    font-size: 3vw;
+    border: 1px solid white;
+  }
+}

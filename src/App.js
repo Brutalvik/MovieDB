@@ -4,11 +4,6 @@ import Header from "./components/Header/Header";
 import Movies from "./components/Movies/Movies";
 import Results from "./components/Results/Results";
 import Player from "./components/Player/Player";
-import Login from "./components/Login/Login";
-import Signup from "./components/Signup/Signup";
-// import Errorpage from "./components/404/Errorpage";
-// import ModalOverlay from "./UI/Modal/ModalOverlay";
-import TV from "./components/TV/Tv";
 import classes from "./App.module.css";
 import { showActions } from "./store/showReducer";
 import { fetchMovies } from "./store/movieActions";
@@ -39,13 +34,8 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<Movies />} />
-          <Route path="/tv" element={<TV />} />
           <Route path="/results" element={<Results />} />
           <Route path="/player" element={<Player />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          {/* {modal ? <Route path="/login" element={<ModalOverlay />} /> : null} */}
-          {/* <Route path="/*" element={<Errorpage />} /> */}
         </Routes>
       </Router>
     </div>

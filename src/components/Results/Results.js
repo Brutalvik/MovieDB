@@ -5,7 +5,6 @@ import Genres from "../Genres/Genres";
 import Button from "../../UI/Button/Button";
 import { showActions } from "../../store/showReducer";
 import { useNavigate } from "react-router-dom";
-import { getTvShow } from "../../store/tvActions";
 
 const Results = () => {
   const dispatch = useDispatch();
@@ -19,8 +18,7 @@ const Results = () => {
       dispatch(showActions.setPlaySelectedShow(show));
       navigate("/player");
     } else {
-      dispatch(getTvShow(show.id));
-      console.log(`sent show id from results : ${show.id}`);
+      return null;
     }
   };
 

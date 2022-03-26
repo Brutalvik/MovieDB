@@ -5,6 +5,7 @@ import classes from "./Player.module.css";
 const Movieplayer = () => {
   const show = useSelector((state) => state.showReducer.playSelectedShow);
   const MOVIE_END_POINT = `${process.env.REACT_APP_FRAME}movie?id=${show.id}`;
+
   window.alias_open = window.open;
   return (
     <div className={classes.player_container}>

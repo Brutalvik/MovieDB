@@ -29,10 +29,15 @@
 
 @media (max-width: 768px) {
   .player_container {
-    width: 70%;
-    height: 35vh;
-    margin-left: 15%;
-    margin-bottom: 50%;
+    width: 90%;
+    height: 40vh;
+    margin-bottom: 100%;
+    margin-left: 5%;
+  }
+
+  .header h1 {
+    font-size: 5.5vw;
+    margin-left: -20%;
   }
 }
 

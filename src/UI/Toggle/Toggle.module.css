@@ -1,8 +1,8 @@
 .toggle_container {
-  width: 20%;
+  width: 10%;
   height: 20%;
   margin: 5%;
-  margin-left: 50%;
+  margin-left: 80%;
   border-radius: 20px;
   padding: 1%;
 }
@@ -35,7 +35,20 @@
 }
 
 .toggletext {
-  margin-left: 55%;
+  margin-left: 83%;
   margin-top: -5%;
   font-size: 1vw;
+}
+
+@media (max-width: 768px) {
+  .toggle_container {
+    width: 30%;
+    margin-left: 45%;
+    margin-top: 10%;
+  }
+
+  .toggletext {
+    font-size: 3vw;
+    margin-left: 55%;
+  }
 }

@@ -17,7 +17,7 @@ const TrendingMovies = () => {
 
   return (
     <div className={classes.container}>
-      {movies.map((movie) => (
+      {movies?.map((movie) => (
         <div
           className={classes.card}
           key={movie.id}

@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-gap: 4%;
+  padding-bottom: 7%;
 }
 
 .info {
@@ -45,4 +46,18 @@ img {
   grid-gap: 5%;
   text-align: center;
   margin-top: 2%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-bottom: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .genres li,
+  .genres,
+  .left_info,
+  .info {
+    font-size: 3.5vw;
+  }
 }

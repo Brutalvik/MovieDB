@@ -26,3 +26,18 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 3vw;
+  }
+
+  .center {
+    margin-top: 40%;
+  }
+
+  .pages_header {
+    margin-top: -10%;
+    padding-bottom: 5%;
+  }
+}

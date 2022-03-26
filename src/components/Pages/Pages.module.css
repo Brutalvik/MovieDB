@@ -16,3 +16,18 @@
 .button_element.dark {
   background-color: rgb(226, 204, 0);
 }
+
+@media (max-width: 768px) {
+  .element {
+    font-size: 4vw;
+  }
+
+  .selected {
+    font-size: 4vw;
+  }
+
+  .button_element {
+    font-size: 5vw;
+    margin-top: 10%;
+  }
+}
