@@ -25,8 +25,11 @@ const Trending = () => {
           <>
             <div className={classes.pages_header}>
               <Pages />
-            </div>{" "}
+            </div>
             <TrendingMovies />
+            <div className={classes.pages_footer}>
+              <Pages />
+            </div>
           </>
         )}
       </div>

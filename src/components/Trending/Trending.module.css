@@ -9,11 +9,12 @@
   text-align: left;
 }
 
-.pages_header {
+.pages_header,
+.pages_footer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   text-align: left;
-  margin-top: -5%;
+  margin-top: -2%;
   margin-left: 70%;
   width: 30%;
   user-select: none;
