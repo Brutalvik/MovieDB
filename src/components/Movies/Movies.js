@@ -13,7 +13,7 @@ const Movies = () => {
   );
   return (
     <div className={classes.container}>
-      {error ? <Trending /> : <ErrorMessage />}
+      {!error.status ? <Trending /> : <ErrorMessage />}
     </div>
   );
 };

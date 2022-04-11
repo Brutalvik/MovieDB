@@ -10,12 +10,6 @@ const Trending = () => {
 
   return (
     <>
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h1>Trending Movies</h1>
-        </div>
-      </div>
-
       <div>
         {loading ? (
           <div className={classes.center}>

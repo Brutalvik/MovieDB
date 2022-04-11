@@ -14,10 +14,13 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   text-align: left;
-  margin-top: -2%;
   margin-left: 70%;
   width: 30%;
   user-select: none;
+}
+.pages_header {
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
 .center {
@@ -35,10 +38,5 @@
 
   .center {
     margin-top: 40%;
-  }
-
-  .pages_header {
-    margin-top: -10%;
-    padding-bottom: 5%;
   }
 }
