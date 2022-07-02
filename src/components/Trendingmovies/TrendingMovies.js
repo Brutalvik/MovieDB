@@ -1,8 +1,8 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import classes from "./TrendingMovies.module.css";
-import { showActions } from "../../store/showReducer";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import classes from './TrendingMovies.module.css';
+import { showActions } from '../../store/showReducer';
+import { useNavigate } from 'react-router-dom';
 
 const TrendingMovies = () => {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ const TrendingMovies = () => {
 
   const handleSelection = (movie) => {
     dispatch(showActions.setPlaySelectedShow(movie));
-    navigate("/player");
+    navigate('/player');
   };
 
   return (

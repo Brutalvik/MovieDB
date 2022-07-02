@@ -1,5 +1,5 @@
-import { movieActions } from "./movieReducer";
-import { logicActions } from "./logicReducer";
+import { movieActions } from './movieReducer';
+import { logicActions } from './logicReducer';
 
 //Base Links
 const BASE_URL = process.env.REACT_APP_URL;
@@ -16,10 +16,9 @@ export const fetchMovies = (page) => {
         dispatch(
           movieActions.setError({
             status: true,
-            message: "Error Fetching Movies",
+            message: 'Error Fetching Movies',
           })
         );
-        console.log(response);
       }
       const data = await response.json();
       return data;
